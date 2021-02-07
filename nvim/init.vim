@@ -5,6 +5,8 @@ Plug 'jremmen/vim-ripgrep'
 Plug 'kien/ctrlp.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'dense-analysis/ale'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 """" end vim-plug
 
