@@ -4,6 +4,7 @@ Plug 'morhetz/gruvbox'
 Plug 'jremmen/vim-ripgrep'
 Plug 'kien/ctrlp.vim'
 Plug 'rust-lang/rust.vim'
+Plug 'dense-analysis/ale'
 call plug#end()
 """" end vim-plug
 
