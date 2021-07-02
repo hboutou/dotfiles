@@ -1,45 +1,27 @@
-""""" begin vim-plug
-call plug#begin('~/.local/share/nvim/plugged')
-Plug 'morhetz/gruvbox'
-Plug 'jremmen/vim-ripgrep'
-Plug 'kien/ctrlp.vim'
-Plug 'rust-lang/rust.vim'
-Plug 'dense-analysis/ale'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-call plug#end()
-"""" end vim-plug
-
-" general
 set colorcolumn=80
+set signcolumn=yes
 set noerrorbells
-colorscheme gruvbox
-set background=dark
 
-" indent
+set scrolloff=10
 set tabstop=4 softtabstop=4
 set shiftwidth=4
 set expandtab
 set smartindent
 
-" lines display
 syntax enable
 filetype plugin indent on
 set number relativenumber
 set nowrap
-set cursorline " highlight current line
 set wildmenu " visual autocomplete for command menu
 set lazyredraw " redraw only when we need to.
 set showmatch " highlight matching [{()}]
+hi MatchParen cterm=none ctermbg=green ctermfg=blue
 
 " search
-set smartcase "case sensitive only when a cap letter is typed
-set incsearch " search as characters are entered
-set hlsearch " highlight matches
-
-" turn off search highlight
-nnoremap <leader><space> :nohlsearch<CR>
-
+set smartcase
+set ignorecase
+set incsearch
+set nohlsearch
 
 " folding
 "set foldenable " enable folding
@@ -49,10 +31,10 @@ set foldnestmax=10 " 10 nested fold max
 nnoremap <space> za
 set foldmethod=indent " fold based on indent level
 
-
 " file duplication
 set noswapfile
 set nobackup
+set hidden
 
 " MOVEMENT
 " move to beginning/end of line
@@ -73,8 +55,6 @@ function! ToggleNumber()
         set norelativenumber
         set number
     else
-        set relativenumber
+		set relativenumber
     endif
 endfunc
-
-
