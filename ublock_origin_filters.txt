@@ -5,3 +5,6 @@ twitter.com##.r-1udh08x.r-1bro5k0.r-1ifxtd0.r-rs99b7.r-1phboty.r-1867qdf.r-k0dy7
 
 ! youtube "more videos" section that shows on top of player on pause event. Ugh! so disgustingly annoying
 www.youtube.com##.ytp-scroll-min.ytp-pause-overlay
+
+! youtube PREMIERES are CANCER!
+www.youtube.com###items > ytd-grid-video-renderer.ytd-grid-renderer.style-scope:contains(PREMIERE)
