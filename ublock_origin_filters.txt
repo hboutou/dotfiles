@@ -14,3 +14,4 @@ www.youtube.com###items > ytd-grid-video-renderer.ytd-grid-renderer.style-scope:
 
 ! youtube miniplayer button
 ##.ytp-button.ytp-miniplayer-button
+
