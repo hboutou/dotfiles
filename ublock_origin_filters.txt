@@ -8,3 +8,6 @@ www.youtube.com##.ytp-scroll-min.ytp-pause-overlay
 
 ! youtube PREMIERES are CANCER!
 www.youtube.com###items > ytd-grid-video-renderer.ytd-grid-renderer.style-scope:contains(PREMIERE)
+
+! youtube LIVE set reminder - no thank you!
+www.youtube.com###items > ytd-grid-video-renderer.ytd-grid-renderer.style-scope:contains(Set reminder)
