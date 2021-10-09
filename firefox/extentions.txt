@@ -1,0 +1,12 @@
+bitwarden
+ClearURLS
+DarkReader
+Decentraleyes
+FacebookContainer
+HTTPS Everywhere
+I don't care about cookies
+Privacy Badger
+Temporary Containers
+uBlock Origin
+Video DownloadHelper
+
