@@ -1,12 +1,11 @@
-bitwarden
-ClearURLS
-DarkReader
-Decentraleyes
-FacebookContainer
-HTTPS Everywhere
-I don't care about cookies
-Privacy Badger
-Temporary Containers
-uBlock Origin
-Video DownloadHelper
-
+facebook-container
+clearurls
+temporary-containers
+video-downloadhelper
+privacy-badger17
+decentraleyes
+https-everywhere
+i-dont-care-about-cookies
+bitwarden-password-manager
+darkreader
+ublock-origin
