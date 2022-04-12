@@ -8,4 +8,5 @@ https-everywhere
 i-dont-care-about-cookies
 bitwarden-password-manager
 darkreader
+sponsorblock
 ublock-origin
