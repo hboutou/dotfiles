@@ -5,3 +5,7 @@ Changes I usually apply to firefox based browsers
 2. copy chrome folder to the profile directory which can be loacted in about:support
 3. restart browser
 
+# disable audio/video indicator because it is annoying and also throws xml parsing error
+Go to about:config and change 
+set `privacy.webrtc.legacyGlobalIndicator: false`
+create `privacy.webrtc.hideGlobalIndicator: true`
