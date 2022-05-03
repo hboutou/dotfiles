@@ -1,5 +1,5 @@
 set colorcolumn=80
-set signcolumn=yes
+"set signcolumn=yes
 set noerrorbells
 
 set scrolloff=10
@@ -15,7 +15,7 @@ set nowrap
 set wildmenu " visual autocomplete for command menu
 set lazyredraw " redraw only when we need to.
 set showmatch " highlight matching [{()}]
-hi MatchParen cterm=none ctermbg=green ctermfg=blue
+highlight MatchParen cterm=bold ctermbg=none ctermfg=red
 
 " search
 set smartcase
@@ -24,12 +24,12 @@ set incsearch
 set nohlsearch
 
 " folding
-"set foldenable " enable folding
-set foldnestmax=10 " 10 nested fold max
+set foldenable " enable folding
+set foldnestmax=2 " max nested fold
+set foldmethod=indent " fold based on indent level
 
 " space open/closes folds
 nnoremap <space> za
-set foldmethod=indent " fold based on indent level
 
 " file duplication
 set noswapfile
