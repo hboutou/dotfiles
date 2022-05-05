@@ -1,0 +1,11 @@
+exa
+fish
+fzf
+htop
+i3
+jq
+neovim
+parallel
+ripgrep
+rofi
+stow
