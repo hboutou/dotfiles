@@ -3,6 +3,7 @@ fish
 fzf
 htop
 i3
+irssi
 jq
 neovim
 parallel
