@@ -5,6 +5,7 @@ htop
 i3
 irssi
 jq
+moreutils
 neovim
 parallel
 ripgrep
