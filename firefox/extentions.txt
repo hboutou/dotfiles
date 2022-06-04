@@ -10,3 +10,6 @@ bitwarden-password-manager
 darkreader
 sponsorblock
 ublock-origin
+sponsor-block
+returnyoutubedislike
+browsec
