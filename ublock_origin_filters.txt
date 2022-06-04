@@ -10,9 +10,11 @@ youtube-nocookie.com,youtube.com##.ytp-pause-overlay, .show-video-thumbnail-butt
 
 ! youtube PREMIERES are CANCER!
 www.youtube.com###items > ytd-grid-video-renderer.ytd-grid-renderer.style-scope:contains(PREMIERE)
+www.youtube.com###items > ytd-grid-video-renderer.ytd-grid-renderer.style-scope:contains(Upcoming)
 
 ! youtube LIVE set reminder - no thank you!
 www.youtube.com###items > ytd-grid-video-renderer.ytd-grid-renderer.style-scope:contains(Set reminder)
+www.youtube.com###items > ytd-grid-video-renderer.ytd-grid-renderer.style-scope:contains(Notify me)
 
 ! youtube miniplayer button
 ##.ytp-button.ytp-miniplayer-button
