@@ -12,3 +12,4 @@ ripgrep
 rofi
 stow
 pavucontrol
+man-db
