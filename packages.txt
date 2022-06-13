@@ -13,3 +13,6 @@ rofi
 stow
 pavucontrol
 man-db
+feh
+claws-mail
+thunar
