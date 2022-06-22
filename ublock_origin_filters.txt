@@ -2,13 +2,19 @@
 www.youtube.com##.ytp-scroll-min.ytp-pause-overlay
 
 ! shorts button in left menu
-youtube.com###endpoint[role=tablist][title=Shorts]
+youtube.com###endpoint[title=Shorts]
+
+! more from youtube
+youtube.com##ytd-guide-section-renderer .ytd-guide-section-renderer:has-text(/^More from YouTube/):upward(ytd-guide-section-renderer)
+
+! subscription
+youtube.com##ytd-guide-section-renderer .ytd-guide-section-renderer:has-text(/^Subscriptions/):upward(ytd-guide-section-renderer)
 
 ! recommend after pause
 youtube-nocookie.com,youtube.com##.ytp-pause-overlay, .show-video-thumbnail-button
 ~youtube-nocookie.com,~youtube.com##iframe ~ #topvbar > #rvid
 
-! youtube PREMIERES are CANCER!
+! youtube PREMIERES
 www.youtube.com###items > ytd-grid-video-renderer.ytd-grid-renderer.style-scope:contains(PREMIERE)
 www.youtube.com###items > ytd-grid-video-renderer.ytd-grid-renderer.style-scope:contains(Upcoming)
 
@@ -28,7 +34,6 @@ youtube.com##ytd-radio-renderer
 
 ! Removes "YouTube" (Music) playlists from the right side panel
 youtube.com##ytd-compact-playlist-renderer .ytd-channel-name:has-text(/^YouTube/):upward(ytd-compact-playlist-renderer)
-
 
 
 ! My Timeline - no inserted sections (Who to follow/Topics to follow, etc.)
