@@ -10,7 +10,7 @@ set smartindent
 
 syntax enable
 filetype plugin indent on
-set number relativenumber
+set number relativenumber cursorline
 "highlight LineNr ctermfg=red
 "highlight CursorLineNr ctermfg=red
 "highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey
