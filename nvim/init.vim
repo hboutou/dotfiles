@@ -11,6 +11,7 @@ set smartindent
 syntax enable
 filetype plugin indent on
 set number relativenumber cursorline
+set cursorlineopt=number
 "highlight LineNr ctermfg=red
 "highlight CursorLineNr ctermfg=red
 "highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey
