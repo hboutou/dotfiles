@@ -21,6 +21,8 @@ www.youtube.com###items > ytd-grid-video-renderer.ytd-grid-renderer.style-scope:
 ! youtube LIVE set reminder - no thank you!
 www.youtube.com###items > ytd-grid-video-renderer.ytd-grid-renderer.style-scope:contains(Set reminder)
 www.youtube.com###items > ytd-grid-video-renderer.ytd-grid-renderer.style-scope:contains(Notify me)
+www.youtube.com###items > ytd-rich-item-renderer.yt-formatted-string:has-text(Notify me)
+
 
 ! youtube miniplayer button
 ##.ytp-button.ytp-miniplayer-button
