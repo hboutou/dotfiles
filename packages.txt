@@ -6,7 +6,7 @@ i3
 irssi
 jq
 moreutils
-neovim
+helix
 parallel
 ripgrep
 rofi
