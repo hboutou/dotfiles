@@ -9,3 +9,11 @@ Changes I usually apply to firefox based browsers
 Go to about:config and change 
 set `privacy.webrtc.legacyGlobalIndicator: false`
 create `privacy.webrtc.hideGlobalIndicator: true`
+
+
+# Trash sites firefox chills for: twitter,reddit, facebook
+```
+# source: https://ask.metafilter.com/344500/Cant-delete-some-items-from-Firefox-One-click-search
+# empty this field
+browser.newtabpage.activity-stream.default.sites
+```
