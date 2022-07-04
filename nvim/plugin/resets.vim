@@ -35,6 +35,7 @@ set ignorecase
 set smartcase
 set nohlsearch
 set incsearch
+set wrapscan
 
 " folding
 set nofoldenable " enable folding
