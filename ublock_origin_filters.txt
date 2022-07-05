@@ -23,6 +23,11 @@ www.youtube.com###items > ytd-grid-video-renderer.ytd-grid-renderer.style-scope:
 www.youtube.com###items > ytd-grid-video-renderer.ytd-grid-renderer.style-scope:contains(Notify me)
 www.youtube.com###items > ytd-rich-item-renderer.yt-formatted-string:has-text(Notify me)
 
+! youtube upcoming. source: https://letsblock.it/filters/youtube-upcoming-videos
+www.youtube.com##ytd-browse ytd-grid-video-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="UPCOMING"])
+www.youtube.com##ytd-browse ytd-rich-item-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="UPCOMING"])
+www.youtube.com##ytd-browse[page-subtype="subscriptions"] ytd-video-renderer ytd-thumbnail-overlay-time-status-renderer[overlay-style="UPCOMING"]:upward(ytd-item-section-renderer)
+
 
 ! youtube miniplayer button
 ##.ytp-button.ytp-miniplayer-button
