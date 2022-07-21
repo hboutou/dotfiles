@@ -48,6 +48,7 @@ nnoremap <space> za
 set noswapfile
 set nobackup
 set hidden
+set undofile
 set history=1000
 
 " MOVEMENT
