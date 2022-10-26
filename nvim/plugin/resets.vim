@@ -28,7 +28,11 @@ set wildmenu " visual autocomplete for command menu
 set wildoptions=pum
 set lazyredraw " redraw only when we need to.
 set showmatch " highlight matching [{()}]
-highlight MatchParen cterm=bold ctermbg=none ctermfg=red
+highlight MatchParen cterm=bold ctermbg=yellow ctermfg=green
+highlight LineNrAbove ctermfg=darkgrey
+highlight LineNr ctermfg=yellow
+highlight LineNrBelow ctermfg=darkgrey
+highlight ColorColumn ctermbg=darkgrey
 
 " search
 set ignorecase
