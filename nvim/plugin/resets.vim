@@ -67,3 +67,5 @@ nnoremap E $
 " highlight last inserted text
 nnoremap gV `[v`]
 
+" Return to last edit position when opening files 
+autocmd BufReadPost * silent! normal! g`"zv
