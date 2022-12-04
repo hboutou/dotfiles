@@ -56,6 +56,10 @@ set undofile
 set history=1000
 
 " MOVEMENT
+" vertical navigation
+nnoremap <C-u> <C-u>zz
+nnoremap <C-d> <C-d>zz
+
 " move to beginning/end of line
 nnoremap B ^
 nnoremap E $
