@@ -1,3 +1,5 @@
+env:
+  TERM: xterm-256color
 font:
   normal:
     family: Source Code Pro
@@ -15,8 +17,6 @@ font:
     family: Source Code Pro
     style: Bold Italic
 
-colors:
-# Colors (Blood Moon)
 colors:
   # Default colors
   primary:
