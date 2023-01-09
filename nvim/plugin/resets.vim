@@ -60,6 +60,14 @@ set history=1000
 nnoremap <C-u> <C-u>zz
 nnoremap <C-d> <C-d>zz
 
+" Last and next jump should center too.
+nnoremap <C-o> <C-o>zz
+nnoremap <C-i> <C-i>zz
+
+" Center screen on next/previous selection.
+nnoremap n nzz
+nnoremap N Nzz
+
 " move to beginning/end of line
 nnoremap B ^
 nnoremap E $
