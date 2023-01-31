@@ -41,7 +41,11 @@ set nohlsearch
 set incsearch
 set wrapscan
 
-" folding
+" sane split
+set splitright
+set splitbelow
+
+" fold
 set nofoldenable " enable folding
 set foldnestmax=1 " nested fold max
 set foldmethod=indent " fold based on indent level
@@ -60,11 +64,11 @@ set history=1000
 nnoremap <C-u> <C-u>zz
 nnoremap <C-d> <C-d>zz
 
-" Last and next jump should center too.
+" last and next jump should center too.
 nnoremap <C-o> <C-o>zz
 nnoremap <C-i> <C-i>zz
 
-" Center screen on next/previous selection.
+" center screen on next/previous selection.
 nnoremap n nzz
 nnoremap N Nzz
 
@@ -79,5 +83,5 @@ nnoremap E $
 " highlight last inserted text
 nnoremap gV `[v`]
 
-" Return to last edit position when opening files 
+" return to last edit position when opening files 
 autocmd BufReadPost * silent! normal! g`"zv
