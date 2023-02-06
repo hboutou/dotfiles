@@ -8,6 +8,7 @@ git
 helix
 htop
 i3
+iproute2
 irssi
 jq
 man-db
