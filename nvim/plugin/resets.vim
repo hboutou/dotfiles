@@ -54,7 +54,8 @@ set wrapscan
 set splitright
 set splitbelow
 
-set notimeout
+set timeout
+set timeoutlen=1000
 set ttimeout
 set ttimeoutlen=5
 
