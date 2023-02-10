@@ -25,7 +25,7 @@ syntax enable
 filetype plugin on
 filetype indent on
 
-set number relativenumber cursorline
+set number relativenumber
 set cursorlineopt=number
 set termguicolors
 set wildmenu " visual autocomplete for command menu
