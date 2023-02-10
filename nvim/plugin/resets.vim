@@ -4,6 +4,7 @@ set path+=**
 set colorcolumn=80
 set signcolumn=yes
 set noerrorbells
+set novisualbell
 set nocompatible
 set showcmd
 set showmode
@@ -54,7 +55,7 @@ set splitbelow
 
 set notimeout
 set ttimeout
-set ttimeoutlen=10
+set ttimeoutlen=5
 
 " fold
 set nofoldenable " enable folding
