@@ -35,6 +35,9 @@ set wildmenu wildoptions=pum
 set ttyfast
 set lazyredraw
 
+set complete=.,w,b,u,t
+set completeopt=longest,menuone
+
 set showmatch " highlight matching [{()}]
 highlight MatchParen cterm=bold ctermbg=none ctermfg=green
 highlight LineNrAbove ctermfg=236
