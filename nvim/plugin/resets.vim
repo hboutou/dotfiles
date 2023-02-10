@@ -4,6 +4,7 @@ set path+=**
 set colorcolumn=80
 set signcolumn=yes
 set noerrorbells
+set nocompatible
 set showcmd
 set showmode
 set ruler
@@ -28,16 +29,16 @@ filetype indent on
 set number relativenumber
 set cursorlineopt=number
 set termguicolors
-set wildmenu " visual autocomplete for command menu
-set wildoptions=pum
+set wildmenu wildoptions=pum
 set ttyfast
-set lazyredraw " redraw only when we need to.
+set lazyredraw
+
 set showmatch " highlight matching [{()}]
-highlight MatchParen cterm=bold ctermbg=yellow ctermfg=green
-highlight LineNrAbove ctermfg=darkgrey
-highlight LineNr ctermfg=yellow
-highlight LineNrBelow ctermfg=darkgrey
-highlight ColorColumn ctermbg=darkgrey
+highlight MatchParen cterm=bold ctermbg=cyan ctermfg=black
+highlight LineNrAbove ctermfg=236
+highlight LineNr ctermfg=cyan
+highlight LineNrBelow ctermfg=236
+highlight ColorColumn ctermbg=236
 highlight SignColumn ctermbg=236
 
 " search
