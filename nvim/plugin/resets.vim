@@ -4,6 +4,10 @@ set path+=**
 set colorcolumn=80
 set signcolumn=yes
 set noerrorbells
+set showcmd
+set showmode
+set ruler
+
 
 set expandtab
 set scrolloff=16
@@ -26,6 +30,7 @@ set cursorlineopt=number
 set termguicolors
 set wildmenu " visual autocomplete for command menu
 set wildoptions=pum
+set ttyfast
 set lazyredraw " redraw only when we need to.
 set showmatch " highlight matching [{()}]
 highlight MatchParen cterm=bold ctermbg=yellow ctermfg=green
@@ -45,6 +50,10 @@ set wrapscan
 set splitright
 set splitbelow
 
+set notimeout
+set ttimeout
+set ttimeoutlen=10
+
 " fold
 set nofoldenable " enable folding
 set foldnestmax=1 " nested fold max
@@ -58,6 +67,7 @@ set nobackup
 set hidden
 set undofile
 set history=1000
+set autoread 
 
 " MOVEMENT
 " vertical navigation
