@@ -38,6 +38,7 @@ highlight LineNrAbove ctermfg=darkgrey
 highlight LineNr ctermfg=yellow
 highlight LineNrBelow ctermfg=darkgrey
 highlight ColorColumn ctermbg=darkgrey
+highlight SignColumn ctermbg=236
 
 " search
 set ignorecase
