@@ -35,9 +35,9 @@ set ttyfast
 set lazyredraw
 
 set showmatch " highlight matching [{()}]
-highlight MatchParen cterm=bold ctermbg=cyan ctermfg=black
+highlight MatchParen cterm=bold ctermbg=none ctermfg=green
 highlight LineNrAbove ctermfg=236
-highlight LineNr ctermfg=cyan
+highlight LineNr ctermfg=yellow
 highlight LineNrBelow ctermfg=236
 highlight ColorColumn ctermbg=236
 highlight SignColumn ctermbg=236
