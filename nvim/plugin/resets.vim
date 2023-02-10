@@ -3,6 +3,7 @@
 set path+=**
 set colorcolumn=80
 set signcolumn=yes
+set belloff=esc
 set noerrorbells
 set novisualbell
 set nocompatible
