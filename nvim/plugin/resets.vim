@@ -32,21 +32,24 @@ set tabstop=4
 set nowrap
 set linebreak
 
+" line number
 set number
 set relativenumber
 set cursorline
+set cursorlineopt=number
+
+"set signcolumn=yes
 set colorcolumn=80
-set signcolumn=yes
 set scrolloff=16
 set sidescrolloff=16
 
 set showmatch " highlight matching [{()}]
 highlight MatchParen cterm=bold ctermbg=none ctermfg=green
-highlight LineNrAbove ctermfg=236
-highlight LineNr ctermfg=yellow
-highlight LineNrBelow ctermfg=236
-highlight ColorColumn ctermbg=236
-highlight SignColumn ctermbg=236
+"highlight LineNrAbove ctermfg=236
+"highlight LineNr ctermfg=yellow
+"highlight LineNrBelow ctermfg=236
+"highlight ColorColumn ctermbg=236
+"highlight SignColumn ctermbg=236
 
 " search
 set ignorecase
