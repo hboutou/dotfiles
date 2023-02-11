@@ -69,7 +69,7 @@ set ttimeout ttimeoutlen=5
 "set nofoldenable " enable folding
 "set foldnestmax=1 " nested fold max
 "set foldmethod=indent " fold based on indent level
-"nnoremap <space> za " space open/closes folds
+nnoremap <space> za " space open/closes folds
 
 " file duplication
 set noswapfile
