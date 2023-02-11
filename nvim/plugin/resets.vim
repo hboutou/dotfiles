@@ -1,8 +1,6 @@
 "set all&
 
 set path+=**
-set colorcolumn=80
-set signcolumn=yes
 set belloff=esc
 set noerrorbells
 set novisualbell
@@ -10,11 +8,21 @@ set nocompatible
 set showcmd
 set showmode
 set ruler
+set termguicolors
+set ttyfast
+set lazyredraw
 
+syntax enable
+filetype plugin on
+filetype indent on
+
+set wildmenu
+set wildoptions=pum
+
+set complete=.,w,b,u,t
+set completeopt=longest,menuone
 
 set expandtab
-set scrolloff=16
-set sidescrolloff=16
 set shiftround
 set shiftwidth=4
 set autoindent
@@ -24,19 +32,13 @@ set tabstop=4
 set nowrap
 set linebreak
 
-syntax enable
-filetype plugin on
-filetype indent on
-
-set number relativenumber
-set cursorlineopt=number
-set termguicolors
-set wildmenu wildoptions=pum
-set ttyfast
-set lazyredraw
-
-set complete=.,w,b,u,t
-set completeopt=longest,menuone
+set number
+set relativenumber
+set cursorline
+set colorcolumn=80
+set signcolumn=yes
+set scrolloff=16
+set sidescrolloff=16
 
 set showmatch " highlight matching [{()}]
 highlight MatchParen cterm=bold ctermbg=none ctermfg=green
@@ -53,28 +55,25 @@ set nohlsearch
 set incsearch
 set wrapscan
 
-" sane split
-set splitright
-set splitbelow
+" split
+"set splitright
+"set splitbelow
 
-set timeout
-set timeoutlen=1000
-set ttimeout
-set ttimeoutlen=5
+set timeout timeoutlen=1000
+set ttimeout ttimeoutlen=5
 
 " fold
-set nofoldenable " enable folding
-set foldnestmax=1 " nested fold max
-set foldmethod=indent " fold based on indent level
-" space open/closes folds
-nnoremap <space> za
+"set nofoldenable " enable folding
+"set foldnestmax=1 " nested fold max
+"set foldmethod=indent " fold based on indent level
+"nnoremap <space> za " space open/closes folds
 
 " file duplication
 set noswapfile
 set nobackup
 set hidden
 set undofile
-set history=1000
+"set history=9999
 set autoread 
 
 " MOVEMENT
