@@ -45,6 +45,7 @@ set sidescrolloff=16
 
 set showmatch " highlight matching [{()}]
 highlight MatchParen cterm=bold ctermbg=none ctermfg=green
+highlight CursorLineNr ctermbg=none
 "highlight LineNrAbove ctermfg=236
 "highlight LineNr ctermfg=yellow
 "highlight LineNrBelow ctermfg=236
