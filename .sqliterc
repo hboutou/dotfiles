@@ -1,1 +1,4 @@
+-- https://sqlite.org/cli.html <3
+.mode csv
 .headers on
+.timer off
