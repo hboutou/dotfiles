@@ -77,4 +77,5 @@ twitter.com##[data-testid="sidebarColumn"] [href="/i/topics/picker/home"]:upward
 twitter.com##[aria-label$="trending now" i]
 ! Sidebar - Who to follow/You might like
 twitter.com##[aria-label="who to follow" i]:upward(1)
+nav a[href="/i/twitter_blue_sign_up"]
 
