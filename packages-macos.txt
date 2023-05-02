@@ -1,0 +1,6 @@
+coreutils
+exa
+fish
+git
+tmux
+watchexec
