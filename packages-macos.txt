@@ -2,5 +2,7 @@ coreutils
 exa
 fish
 git
+podman
+terraform
 tmux
 watchexec
