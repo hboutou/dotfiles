@@ -1,6 +1,6 @@
 -- https://sqlite.org/cli.html <3
 .headers on
 .mode column
-.nullvalue ¤
+.nullvalue ∅
 .prompt "> "
 .timer on
