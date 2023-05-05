@@ -3,4 +3,11 @@
 
 [user]
     name = hboutou
-    email = 22304469+hboutou@users.noreply.github.com
+    email = 22304469+hboutou@users.noreply.github.com    
+
+[alias]
+    # show list of contributors in descending order by number of commits
+    rank = shortlog -sn --no-merges
+
+    # Add modified files to previous commit
+    oups = !"git add -A -v && git commit --amend -C HEAD"
