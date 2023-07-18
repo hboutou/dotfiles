@@ -11,3 +11,5 @@
 
     # Add modified files to previous commit
     oups = !"git add -A -v && git commit --amend -C HEAD"
+
+    s = "status --short"
