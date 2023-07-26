@@ -7,3 +7,4 @@
 .passwords
 .secret
 .secrets
+[._]*.un~/ # Persistent undo
