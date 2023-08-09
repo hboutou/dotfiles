@@ -1,4 +1,5 @@
 -- https://sqlite.org/cli.html <3
+.bail on
 .headers on
 .mode column
 .nullvalue ∅
