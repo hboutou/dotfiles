@@ -1,22 +1,26 @@
-#!/bin/bash                                                                                             
-                                                                                                        
-sqlite3 -bail <<EOF                                                                                     
-.import --csv $1 csv                                                                                    
-.mode json                                                                                              
-WITH temp AS (                                                                                          
-    SELECT                                                                                              
-        CAST(mpid AS INT) AS mpid,                                                                     
-        CAST(date AS INT) AS date,                                                                     
-        '0000000' AS requestId                                                                        
-    FROM csv                                                                                            
-    ORDER BY mpid, date                                                                                 
-)                                                                                                       
-SELECT                                                                                                  
-    mpid || '-' || date AS "Id",                                                                        
-    json_object(                                                                                        
-        'masterPortfolioId', mpid,                                                                      
-        'portfolioDate', date                                                                           
-    ) AS "MessageBody"                                                                                  
-FROM temp                                                                                               
-;                                                                                                       
+#! /bin/bash
+
+sqlite3 -bail << EOF
+
+.import --csv $1 csv
+.mode json
+
+WITH temp AS (
+    SELECT
+        CAST(mpid AS INT) AS mpid,
+        CAST(date AS INT) AS date,
+        '0000000' AS requestId
+    FROM csv
+    ORDER BY mpid, date
+)   
+
+SELECT
+    mpid || '-' || date AS "Id",
+    json_object(
+        'masterPortfolioId', mpid,
+        'portfolioDate', date
+    ) AS "MessageBody"
+FROM temp
+;
+
 EOF
