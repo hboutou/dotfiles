@@ -1,0 +1,26 @@
+#! /bin/sh
+
+sqlite3 -bail << EOL
+
+.import --csv "$1" csv
+.excel
+
+WITH temp AS (
+    SELECT 
+        " User" AS user,
+        SUBSTR("Incident", 10) AS incident
+    FROM csv
+    WHERE " User" IN ('hamza.boutou', 'SYSTEM')
+        AND " Event" = 'RESOLVED'
+)
+
+SELECT
+    user,
+    COUNT(incident),
+    incident
+FROM temp
+GROUP BY incident, user
+ORDER BY user, COUNT(incident) DESC
+;
+
+EOL
