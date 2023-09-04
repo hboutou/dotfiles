@@ -6,3 +6,4 @@ podman
 terraform
 tmux
 watchexec
+whichspace
