@@ -1,6 +1,7 @@
 *~
 *.[oa]
 .*.swp
+*.pem
 .DS_Store
 .env
 .password
