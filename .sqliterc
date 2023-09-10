@@ -6,6 +6,7 @@
 .prompt "> "
 .timer on
 
+PRAGMA foreign_keys = on;
 PRAGMA journal_mode = wall;
 PRAGMA busy_timeout = 5000;
-PRAGMA foreign_keys = on;
+
