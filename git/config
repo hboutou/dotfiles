@@ -3,7 +3,11 @@
 
 [user]
     name = hboutou
-    email = 22304469+hboutou@users.noreply.github.com    
+    email = 22304469+hboutou@users.noreply.github.com
+
+[push]
+  default = tracking
+  autoSetupRemote = true
 
 [alias]
     # show list of contributors in descending order by number of commits
