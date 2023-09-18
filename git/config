@@ -24,4 +24,5 @@
     s = "status --short"
 
     l = "log --oneline"
+    ll = log --pretty=format:'%C(auto)%h %>(13)%ar %>(9,trunc)%Cgreen%aL %C(auto)%d %s'
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
