@@ -1,6 +1,6 @@
 adobe-source-code-pro-fonts
 claws-mail
-exa
+eza
 feh
 fish
 fzf

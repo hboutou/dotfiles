@@ -1,5 +1,5 @@
-alias  ll='exa --group-directories-first --long'
-alias lll='exa --group-directories-first --long --all'
+alias  ll='eza --group-directories-first --long'
+alias lll='eza --group-directories-first --long --all'
 
 set PIP_REQUIRE_VIRTUALENV true
 

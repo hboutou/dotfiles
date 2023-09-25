@@ -1,5 +1,5 @@
 coreutils
-exa
+eza
 fish
 git
 podman
