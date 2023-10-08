@@ -1,7 +1,10 @@
-alias  ll='eza --group-directories-first --long'
-alias lll='eza --group-directories-first --long --all'
+set --erase fish_greeting
+
+set PATH $HOME/.cargo/bin $PATH
 
 set PIP_REQUIRE_VIRTUALENV true
 
-set --erase fish_greeting
-set PATH $HOME/.cargo/bin $PATH
+alias   l='eza --group-directories-first'                                       
+alias  ll='eza --group-directories-first --long'                                
+alias lll='eza --group-directories-first --long --all'
+alias tree='eza --tree'
