@@ -1,4 +1,4 @@
-set --erase fish_greeting
+set -g fish_greeting
 
 set PATH $HOME/.cargo/bin $PATH
 
