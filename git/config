@@ -15,11 +15,17 @@
     autoSetupRemote = true
 
 [alias]
+    # List aliases.
+	aliases = config --get-regexp alias
+
     # show list of contributors in descending order by number of commits
     rank = shortlog -sn --no-merges
 
     # Add modified files to previous commit
     oups = !"git add -A -v && git commit --amend -C HEAD"
+
+	# Amend the currently staged files to the latest commit
+	amend = commit --amend --reuse-message=HEAD
 
     s = "status --short"
 
