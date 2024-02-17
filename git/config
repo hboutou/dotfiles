@@ -28,7 +28,7 @@
     oups = !"git add -A -v && git commit --amend -C HEAD"
 
     # Amend the currently staged files to the latest commit
-    amend = commit --amend --reuse-message=HEAD
+    amend = commit --amend --no-edit
 
     s = "status --short"
 
