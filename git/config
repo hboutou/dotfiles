@@ -14,6 +14,9 @@
     default = upstream
     autoSetupRemote = true
 
+[pull]
+    ff = only
+
 [alias]
     # List aliases.
     aliases = config --get-regexp alias
