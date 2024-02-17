@@ -30,6 +30,8 @@
     # Amend the currently staged files to the latest commit
     amend = commit --amend --no-edit
 
+    pushf = "push --force-with-lease"
+
     s = "status --short"
 
     l = "log --oneline"
