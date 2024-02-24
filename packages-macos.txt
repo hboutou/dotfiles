@@ -13,6 +13,7 @@ redis
 ruff
 shellcheck
 terraform
+tldr
 tmux
 watchexec
 whichspace
