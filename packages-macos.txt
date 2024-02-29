@@ -12,6 +12,7 @@ podman
 redis
 ruff
 shellcheck
+sshpass
 terraform
 tldr
 tmux
