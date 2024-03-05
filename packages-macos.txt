@@ -1,10 +1,12 @@
 avro-tools
+bash
 coreutils
 duckdb
 eza
 fish
 fzf
 git
+gnuplot
 go
 jq
 lua
