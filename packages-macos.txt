@@ -9,6 +9,7 @@ git
 gnuplot
 go
 jq
+lazygit
 lua
 moreutils
 podman
