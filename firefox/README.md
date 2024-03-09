@@ -17,3 +17,10 @@ create `privacy.webrtc.hideGlobalIndicator: true`
 # empty this field
 browser.newtabpage.activity-stream.default.sites
 ```
+
+
+# keyboard input lag
+```
+go to about:config
+set accessibility.force_disabled to 1
+```
