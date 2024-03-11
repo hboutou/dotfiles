@@ -15,11 +15,17 @@
 [rerere]
     enabled = true
 
+[branch]                                                                        
+    sort = -committerdate
+
 [diff]
     # Git diff will use (i)ndex, (w)ork tree, (c)ommit and (o)bject
     # instead of a/b/c/d as prefixes for patches
     mnemonicprefix = true
 
+[maintenance]
+    auto = false
+    strategy = incremental
 
 [alias]
     # List aliases.
