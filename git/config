@@ -5,17 +5,21 @@
     name = hboutou
     email = 22304469+hboutou@users.noreply.github.com
 
-[diff]
-    # Git diff will use (i)ndex, (w)ork tree, (c)ommit and (o)bject
-    # instead of a/b/c/d as prefixes for patches
-    mnemonicprefix = true
-
 [push]
     default = upstream
     autoSetupRemote = true
 
 [pull]
     ff = only
+
+[rerere]
+    enabled = true
+
+[diff]
+    # Git diff will use (i)ndex, (w)ork tree, (c)ommit and (o)bject
+    # instead of a/b/c/d as prefixes for patches
+    mnemonicprefix = true
+
 
 [alias]
     # List aliases.
