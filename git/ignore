@@ -11,3 +11,6 @@
 .secret
 .secrets
 [._]*.un~/ # Persistent undo
+
+# for when the spaghetti ghoul shows up
+Main?.java
