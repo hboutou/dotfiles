@@ -19,9 +19,6 @@
     sort = -committerdate
 
 [diff]
-    # https://difftastic.wilfred.me.uk                                 
-    external = difft
-
     # Git diff will use (i)ndex, (w)ork tree, (c)ommit and (o)bject
     # instead of a/b/c/d as prefixes for patches
     mnemonicprefix = true
@@ -36,6 +33,9 @@
 
     # show list of contributors in descending order by number of commits
     rank = shortlog -sn --no-merges
+
+    # https://difftastic.wilfred.me.uk/git.html
+    dft = !"GIT_EXTERNAL_DIFF=difft git diff"
 
     # Add modified files to previous commit
     oups = !"git add -A -v && git commit --amend -C HEAD"
