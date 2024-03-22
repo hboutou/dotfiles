@@ -5,6 +5,9 @@
 [core]
     editor = vim
 
+[init]                                                                          
+    defaultBranch = main
+
 [push]
     default = upstream
     autoSetupRemote = true
