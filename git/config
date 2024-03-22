@@ -32,7 +32,7 @@
 
 [alias]
     # List aliases.
-    aliases = config --get-regexp alias
+    alias = config --get-regexp alias
 
     # show list of contributors in descending order by number of commits
     rank = shortlog -sn --no-merges
