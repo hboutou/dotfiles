@@ -1,6 +1,7 @@
 avro-tools
 bash
 coreutils
+difftastic
 duckdb
 eza
 fish
