@@ -37,7 +37,7 @@
     # show list of contributors in descending order by number of commits
     rank = shortlog -sn --no-merges
 
-    # https://difftastic.wilfred.me.uk/git.html
+    # https://difftastic.wilfred.me.uk
     dft = !"GIT_EXTERNAL_DIFF=difft git diff"
 
     # Add modified files to previous commit
