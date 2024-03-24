@@ -15,16 +15,14 @@
 [pull]
     ff = only
 
-[rerere]
-    enabled = true
-
 [branch]
     sort = -committerdate
 
 [diff]
-    # Git diff will use (i)ndex, (w)ork tree, (c)ommit and (o)bject
-    # instead of a/b/c/d as prefixes for patches
     mnemonicprefix = true
+
+[rerere]
+    enabled = true
 
 [maintenance]
     auto = false
@@ -37,19 +35,19 @@
     # show list of contributors in descending order by number of commits
     rank = shortlog -sn --no-merges
 
-    # https://difftastic.wilfred.me.uk
-    dft = !"GIT_EXTERNAL_DIFF=difft git diff"
+    # difftastic
+    difft = !"GIT_EXTERNAL_DIFF=difft git diff"
 
-    # Add modified files to previous commit
+    # Add modified files to latest commit
     oups = !"git add -A -v && git commit --amend -C HEAD"
 
-    # Amend the currently staged files to the latest commit
+    # Amend latest commit with currently staged files
     amend = commit --amend --no-edit
 
-    pushf = "push --force-with-lease"
+    pushf = push --force-with-lease
 
-    s = "status --short"
+    s = status --short
+    l = log --oneline
 
-    l = "log --oneline"
     ll = log --pretty=format:'%C(auto)%h %>(13)%ar %>(9,trunc)%Cgreen%aL %C(auto)%d %s'
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
