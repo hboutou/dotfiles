@@ -12,6 +12,7 @@ go
 jq
 lazygit
 lua
+maccy
 moreutils
 podman
 python@3.8
