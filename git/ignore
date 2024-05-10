@@ -6,13 +6,12 @@
 .idea/
 .DS_Store
 .env
-.password
-.passwords
-.secret
-.secrets
+
 [._]*.un~/ # Persistent undo
 
-.sqlite*
+*.sqlite*
 
 # for when the spaghetti ghoul shows up
-Main?.java
+[Tt]ry.*
+[Tt]ry?.*
+[Mm]ain?.*
