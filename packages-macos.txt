@@ -15,6 +15,7 @@ lazygit
 lua
 maccy
 moreutils
+mpv
 podman
 python@3.8
 python@3.9
