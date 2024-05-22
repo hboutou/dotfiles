@@ -21,6 +21,7 @@ filetype indent on
 
 set wildmenu
 set wildoptions=pum
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.sqlite,*.o,*.a
 
 set complete=.,w,b,u,t
 set completeopt=longest,menuone
