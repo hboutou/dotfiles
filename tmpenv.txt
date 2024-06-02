@@ -1,0 +1,13 @@
+boto3
+dask
+fastavro
+matplotlib
+numpy
+pandas
+psycopg-binary
+pyarrow
+pydantic
+pydantic-settings
+redis
+requests
+scipy
