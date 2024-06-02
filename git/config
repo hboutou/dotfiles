@@ -9,6 +9,26 @@
 [init]
     defaultBranch = main
 
+[branch]
+    sort = -committerdate
+
+[tag]
+    sort = taggerdate
+
+[diff]  
+    algorithm = histogram
+    colorMoved = default
+    renames = copy
+    mnemonicprefix = true
+
+[commit]
+    verbose = true
+
+[fetch]
+    fsckobjects = true
+    prune = true
+    prunetags = true
+
 [push]
     default = upstream
     autoSetupRemote = true
@@ -19,14 +39,17 @@
 [merge]
     conflictStyle = zdiff3
 
-[branch]
-    sort = -committerdate
-
-[diff]
-    mnemonicprefix = true
-
 [rerere]
     enabled = true
+
+[rebase]
+    missingCommitsCheck = error
+
+[transfer]
+    fsckobjects = true
+
+[receive]
+    fsckobjects = true
 
 [maintenance]
     auto = false
