@@ -16,6 +16,7 @@ lua
 maccy
 moreutils
 mpv
+opentofu
 podman
 python@3.8
 python@3.9
