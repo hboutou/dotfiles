@@ -71,6 +71,8 @@
     # Amend latest commit with currently staged files
     amend = commit --amend --no-edit
 
+    updated = ls-files --modified
+
     pushf = push --force-with-lease
 
     s = status --short
