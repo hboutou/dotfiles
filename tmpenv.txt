@@ -9,7 +9,7 @@ psycopg-binary
 pyarrow
 pydantic
 pydantic-settings
-# pymssql
+# pymssql # needs a ceremony to compile
 redis
 requests
 scipy
