@@ -1,5 +1,6 @@
 boto3
 dask
+duckdb
 fastavro
 matplotlib
 numpy
@@ -8,6 +9,7 @@ psycopg-binary
 pyarrow
 pydantic
 pydantic-settings
+# pymssql
 redis
 requests
 scipy
