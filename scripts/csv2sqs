@@ -6,7 +6,7 @@ sqlite3 -bail << EOF
 .mode json
 
 WITH cte AS (
-    SELECT
+    SELECT DISTINCT
         CAST(mpid AS INT) AS mpid,
         CAST(date AS INT) AS date,
         '0000000' AS requestId
