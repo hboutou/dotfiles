@@ -3,5 +3,5 @@
 repo="$1"
 url="ssh://git@$example.com/${repo}.git"
 
-ref=$(git -c 'versionsort.suffix=-' ls-remote --exit-code --refs --sort='version:refname' --tags "${url}" '2.??.*' | tail -1)
+ref=$(git -c 'versionsort.suffix=-' ls-remote --exit-code --refs --sort='version:refname' --tags "${url}" '?.??.*' | tail -1)
 echo "${ref}\t${repo}"
