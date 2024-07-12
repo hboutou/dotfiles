@@ -2,15 +2,15 @@
 
 sqlite3 -bail << EOF
 
-.import --csv "$1" csv
+.import --csv "$1" tmp
 .mode json
 
-WITH temp AS (
+WITH cte AS (
     SELECT
         CAST(mpid AS INT) AS mpid,
         CAST(date AS INT) AS date,
         '0000000' AS requestId
-    FROM csv
+    FROM tmp
     ORDER BY mpid, date
 )   
 
@@ -20,7 +20,7 @@ SELECT
         'masterPortfolioId', mpid,
         'portfolioDate', date
     ) AS "MessageBody"
-FROM temp
+FROM cte
 ;
 
 EOF
