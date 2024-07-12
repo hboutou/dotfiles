@@ -2,14 +2,14 @@
 
 sqlite3 -bail << EOL
 
-.import --csv "$1" csv
+.import --csv "$1" tmp
 .excel
 
-WITH temp AS (
+WITH cte AS (
     SELECT 
         " User" AS user,
         SUBSTR("Incident", 10) AS incident
-    FROM csv
+    FROM tmp
     WHERE " User" IN ('hamza.boutou', 'SYSTEM')
         AND " Event" = 'RESOLVED'
 )
@@ -18,7 +18,7 @@ SELECT
     user,
     COUNT(incident),
     incident
-FROM temp
+FROM cte
 GROUP BY incident, user
 ORDER BY user, COUNT(incident) DESC
 ;
