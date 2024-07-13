@@ -2,6 +2,7 @@ boto3
 dask
 duckdb
 fastavro
+ipython
 matplotlib
 numpy
 pandas
