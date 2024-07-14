@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /bin/sh
 
 sqlite3 -bail << EOF
 
@@ -8,8 +8,7 @@ sqlite3 -bail << EOF
 WITH cte AS (
     SELECT DISTINCT
         CAST(mpid AS INT) AS mpid,
-        CAST(date AS INT) AS date,
-        '0000000' AS requestId
+        CAST(date AS INT) AS date
     FROM tmp
     ORDER BY mpid, date
 )   
@@ -18,7 +17,8 @@ SELECT
     mpid || '-' || date AS "Id",
     json_object(
         'masterPortfolioId', mpid,
-        'portfolioDate', date
+        'portfolioDate', date,
+        'requestId', HEX(RANDOMBLOB(CURRENT_TIME))
     ) AS "MessageBody"
 FROM cte
 ;
