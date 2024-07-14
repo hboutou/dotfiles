@@ -1,0 +1,25 @@
+#! /bin/bash
+
+#
+# Backup sqlite db file
+#
+
+set -o errexit
+set -o pipefail
+set -o noglob
+set -o nounset
+
+DB_PATH=$1
+BACKUP_PATH=$2
+
+sqlite3 ${DB_PATH} "VACUUM INTO '${BACKUP_PATH}'"
+tar --zstd -cf "${BACKUP_PATH}.tar.zst" "${BACKUP_PATH}"
+
+# 1-day, rolling hourly backup
+aws s3 cp "${BACKUP_PATH}.tar.zst" s3://mybucket/backup-`date +%H`.tar.zst
+
+# 1-month, rolling daily backup
+aws s3 cp "${BACKUP_PATH}.tar.zst" s3://mybucket/backup-`date +%d`.tar.zst
+
+# 1-month, rolling hourly backup
+aws s3 cp "${BACKUP_PATH}.tar.zst" s3://mybucket/backup-`date +%d%H`.tar.zst
