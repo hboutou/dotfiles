@@ -2,14 +2,14 @@
 
 sqlite3 -bail << EOF
 
-.import --csv "$1" tmp
+.import --csv "$1" csv
 .mode json
 
 WITH cte AS (
     SELECT DISTINCT
         CAST(mpid AS INT) AS mpid,
         CAST(date AS INT) AS date
-    FROM tmp
+    FROM csv
     ORDER BY mpid, date
 )   
 
