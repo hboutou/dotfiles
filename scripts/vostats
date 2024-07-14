@@ -2,14 +2,14 @@
 
 sqlite3 -bail << EOL
 
-.import --csv "$1" tmp
+.import --csv "$1" csv
 .excel
 
 WITH cte AS (
     SELECT 
         " User" AS user,
         SUBSTR("Incident", 10) AS incident
-    FROM tmp
+    FROM csv
     WHERE " User" IN ('hamza.boutou', 'SYSTEM')
         AND " Event" = 'RESOLVED'
 )
