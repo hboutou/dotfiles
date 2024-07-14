@@ -18,7 +18,7 @@ SELECT
     json_object(
         'masterPortfolioId', mpid,
         'portfolioDate', date,
-        'requestId', HEX(CURRENT_TIME)
+        'requestId', '0000'
     ) AS "MessageBody"
 FROM cte
 ;
