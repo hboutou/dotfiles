@@ -44,6 +44,7 @@
 
 [rebase]
     missingCommitsCheck = error
+    updateRefs = true
 
 [transfer]
     fsckobjects = true
