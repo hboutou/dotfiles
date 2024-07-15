@@ -4,7 +4,7 @@
 
 [core]
     editor = vim
-    autocrlf = false
+    autocrlf = input
 
 [init]
     defaultBranch = main
