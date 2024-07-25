@@ -57,13 +57,13 @@
     strategy = incremental
 
 [alias]
-    # List aliases.
+    # List aliases
     alias = config --get-regexp alias
 
-    # show list of contributors in descending order by number of commits
+    # Show list of contributors in descending order by number of commits
     rank = shortlog -sn --no-merges
 
-    # difftastic
+    # Difftastic
     difft = !"GIT_EXTERNAL_DIFF=difft git diff"
 
     # Add modified files to latest commit
@@ -75,6 +75,8 @@
     updated = ls-files --modified
 
     pushf = push --force-with-lease
+
+    trash = !"git branch --merged | egrep -v '(^\*|master|main|develop)' | xargs git branch -d"
 
     s = status --short
     l = log --oneline
