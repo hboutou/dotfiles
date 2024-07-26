@@ -1,3 +1,3 @@
 function tree
-    eza --tree
+    eza --tree $argv
 end
