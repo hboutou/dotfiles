@@ -1,13 +1,28 @@
-function tmpactivate
-    source ~/tmppython/bin/activate.fish
-    : 'TODO
-    if /opt/tmppython and /opt/tmppython/bin/activate.fish exist
-        source /opt/tmppython/bin/activate.fish
+function tmpactivate --description "Create a throwaway python playground"
+    set --local venvdir "/tmp/.venv"
+
+    if test -f "$venvdir/bin/activate.fish"
+        source "$venvdir/bin/activate.fish"
     else
-        rm -rf /opt/tmppython
-        python3.12 -m venv /opt/tmppython
-        /opt/tmppython/bin/pip install --upgrade pip
-        /opt/tmppython/bin/pip install ..
-        source /opt/tmppython/bin/activate.fish
-    '
+        rm -rf "$venvdir"
+        python3 -m venv "$venvdir"
+        source "$venvdir/bin/activate.fish"
+        pip install --upgrade pip
+        pip install \
+            boto3 \
+            duckdb \
+            fastavro \
+            ipython \
+            matplotlib \
+            numpy \
+            pandas \
+            psycopg-binary \
+            pyarrow \
+            pydantic \
+            pydantic-settings \
+            # pymssql # needs a ceremony to compile
+            redis \
+            requests \
+            scipy 
+    end
 end
