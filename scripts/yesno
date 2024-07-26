@@ -1,7 +1,7 @@
 #! /usr/bin/env lua
 
 while true do
-    io.write("continue (yes/no) ? ")
+    io.write("proceed ? (yes/no) ")
     choice = io.read()
 
     if choice == "yes" then
