@@ -1,5 +1,5 @@
-function tmpactivate --description "Create a throwaway python playground"
-    set --local venvdir "/tmp/.venv"
+function tmpvenv --description "Create a throwaway python playground"
+    set --local venvdir "/tmp/.tmpvenv"
 
     if test -f "$venvdir/bin/activate.fish"
         source "$venvdir/bin/activate.fish"
