@@ -25,5 +25,4 @@ function tmpvenv --description "Create a throwaway python playground"
             requests \
             scipy 
     end
-    ipython
 end
