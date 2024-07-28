@@ -1,11 +1,12 @@
 #! /usr/bin/env python3
 import sys
 
-def hell(s, tokens):
-    if tokens:
-        hell(s + '_' + tokens[0], tokens[1:])
-        hell(s + '__' + tokens[0], tokens[1:])
-    print(s)
+def hell(s, arr):
+    if not arr:
+        print(s)
+    else:
+        hell(s + '_' + arr[0], arr[1:])
+        hell(s + '__' + arr[0], arr[1:])
 
-tokens = list(filter(None, sys.argv[1].split('_')))
-hell(s=tokens[0], tokens=tokens[1:])
+arr = list(filter(None, sys.argv[1].split('_')))
+hell(s=arr[0], arr=arr[1:])
