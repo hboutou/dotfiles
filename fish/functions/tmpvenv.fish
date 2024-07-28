@@ -21,6 +21,7 @@ function tmpvenv --description "Create a throwaway python playground"
             pydantic \
             pydantic-settings \
             # pymssql # needs a ceremony to compile
+            pyright \
             redis \
             requests \
             scipy 
