@@ -1,4 +1,5 @@
 # problem: external Dell monitor flicker with macbook source
+# see: https://www.dell.com/community/en/conversations/monitors/u4021qw-macbook-pro-m1-flickering-fixed/647fa094f4ccf8a8de59e25a
 # solution: force RGB output
 # source: https://github.com/dangh/force-rgb.fish
 
