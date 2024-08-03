@@ -1,3 +1,31 @@
+[alias]
+    # List aliases
+    alias = config --get-regexp alias
+
+    # Show list of contributors in descending order by number of commits
+    rank = shortlog -sn --no-merges
+
+    # Difftastic
+    difft = !"GIT_EXTERNAL_DIFF=difft git diff"
+
+    # Add modified files to latest commit
+    oups = !"git add -A -v && git commit --amend -C HEAD"
+
+    # Amend latest commit with currently staged files
+    amend = commit --amend --no-edit
+
+    updated = ls-files --modified
+
+    pushf = push --force-with-lease
+
+    trash = !"git branch --merged | egrep -v '(^\*|master|main|develop)' | xargs git branch -d"
+
+    s = status --short
+    l = log --oneline
+
+    ll = log --pretty=format:'%C(auto)%h %>(13)%ar %>(9,trunc)%Cgreen%aL %C(auto)%d %s'
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+
 [user]
     name = hboutou
     email = 22304469+hboutou@users.noreply.github.com
@@ -55,31 +83,3 @@
 [maintenance]
     auto = false
     strategy = incremental
-
-[alias]
-    # List aliases
-    alias = config --get-regexp alias
-
-    # Show list of contributors in descending order by number of commits
-    rank = shortlog -sn --no-merges
-
-    # Difftastic
-    difft = !"GIT_EXTERNAL_DIFF=difft git diff"
-
-    # Add modified files to latest commit
-    oups = !"git add -A -v && git commit --amend -C HEAD"
-
-    # Amend latest commit with currently staged files
-    amend = commit --amend --no-edit
-
-    updated = ls-files --modified
-
-    pushf = push --force-with-lease
-
-    trash = !"git branch --merged | egrep -v '(^\*|master|main|develop)' | xargs git branch -d"
-
-    s = status --short
-    l = log --oneline
-
-    ll = log --pretty=format:'%C(auto)%h %>(13)%ar %>(9,trunc)%Cgreen%aL %C(auto)%d %s'
-    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
