@@ -12,6 +12,7 @@ gnuplot
 go
 jq
 lazygit
+localstack
 lua
 maccy
 moreutils
