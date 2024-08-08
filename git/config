@@ -14,7 +14,7 @@
     # Amend latest commit with currently staged files
     amend = commit --amend --no-edit
 
-    files-ive-edited = !git log --no-merges --stat --author='hamza' --name-only --pretty=format:"" | sort -u | sed '/^[[:space:]]*$/d'
+    files-ive-edited = !git log --no-merges --stat --author='hamza' --name-only --pretty=format:"" | sort -u | awk 'NF'
 
     updated = ls-files --modified
 
