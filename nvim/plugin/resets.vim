@@ -77,6 +77,9 @@ set ttimeout ttimeoutlen=5
 nnoremap <space> za " space open/closes folds
 
 " file duplication
+set backupdir=~/.vim/backup//,/tmp//                                            
+set directory=~/.vim/swap//,/tmp//                                              
+set undodir=~/.vim/undo//,/tmp//
 set noswapfile
 set nobackup
 set hidden
