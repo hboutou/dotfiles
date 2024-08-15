@@ -21,6 +21,10 @@ browser.newtabpage.activity-stream.default.sites
 
 # keyboard input lag
 ```
-go to about:config
 set accessibility.force_disabled to 1
+```
+
+# calculator
+```
+set browser.urlbar.suggest.calculator 1
 ```
