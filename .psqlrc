@@ -1,2 +1,14 @@
+-- https://www.postgresql.org/docs/current/app-psql.html
+
+\set QUIET 1
+\echo AUTOCOMMIT = :AUTOCOMMIT
+
+\timing
+
 \pset pager on
 \x auto
+
+\set VERBOSITY verbose
+
+-- History
+\set HISTCONTROL ignoredups
