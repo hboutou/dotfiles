@@ -32,6 +32,10 @@
     name = hboutou
     email = 22304469+hboutou@users.noreply.github.com
 
+[url "git@github.com:"]
+	insteadOf = git://github.com/
+	insteadOf = https://github.com/
+
 [core]
     editor = vim
     autocrlf = input
