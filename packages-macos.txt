@@ -24,6 +24,7 @@ podman
 python@3.8
 python@3.9
 python@3.11
+python@3.13
 redis
 ruff
 shellcheck
