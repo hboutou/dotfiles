@@ -5,7 +5,7 @@ function tmpvenv --description "Create a throwaway python playground"
         source "$venvdir/bin/activate.fish"
     else
         rm -rf "$venvdir"
-        python3 -m venv "$venvdir"
+        python3.13 -m venv "$venvdir"
         source "$venvdir/bin/activate.fish"
         pip install --upgrade pip
         pip install \
