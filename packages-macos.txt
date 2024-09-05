@@ -36,3 +36,6 @@ tokei
 watchexec
 whichspace
 zq
+
+
+--cask vmware-fusion
