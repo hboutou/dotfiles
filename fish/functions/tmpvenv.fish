@@ -8,7 +8,7 @@ function tmpvenv --description "Create a throwaway python playground"
         python3.13 -m venv "$venvdir"
         source "$venvdir/bin/activate.fish"
         pip install --upgrade pip
-        pip install \
+        pip -v install \
             boto3 \
             duckdb \
             fastavro \
@@ -24,6 +24,8 @@ function tmpvenv --description "Create a throwaway python playground"
             pyright \
             redis \
             requests \
-            scipy 
+            scipy \
+            xwing \
+
     end
 end
