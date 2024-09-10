@@ -29,5 +29,4 @@ function tmpvenv --description "Create a throwaway python playground"
         scipy \
         xwing \
 
-    end
 end
