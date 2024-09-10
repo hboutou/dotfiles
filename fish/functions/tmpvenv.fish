@@ -4,6 +4,7 @@ function tmpvenv --description "Create a throwaway python playground"
     if test -f "$venvdir/bin/activate.fish"
         source "$venvdir/bin/activate.fish"
         return
+    end
 
     rm -rf "$venvdir"
     python3.13 -m venv "$venvdir"
