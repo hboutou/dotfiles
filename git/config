@@ -16,8 +16,6 @@
 
     files-ive-edited = !git log --no-merges --name-only --pretty=format: --author='Hamza' | awk 'NF' | sort -u
 
-git ll --author=Hamza.Boutou --name-only
-
     updated = ls-files --modified
 
     pushf = push --force-with-lease
