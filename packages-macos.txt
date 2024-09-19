@@ -38,5 +38,7 @@ whichspace
 zq
 
 --cask dbeaver-community
+--cask obsidian
 --cask vmware-fusion
 --cask wireshark
+
