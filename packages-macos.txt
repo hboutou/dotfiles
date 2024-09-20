@@ -19,7 +19,7 @@ maccy
 moreutils
 mpv
 opentofu
-parallels
+parallel
 podman
 python@3.8
 python@3.9
@@ -38,7 +38,9 @@ whichspace
 zq
 
 --cask dbeaver-community
+--cask parallels
 --cask obsidian
 --cask vmware-fusion
 --cask wireshark
+
 
