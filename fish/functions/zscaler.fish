@@ -1,7 +1,8 @@
-function zscaler --description "notify when this crapware reconnects me to internet"
+function zscaler --description "notify when this crapware reconnects to internet"
+    echo (date '+%F %T') - start
     while not ping -c 1 google.com
-        sleep 1
+        sleep 5
     end
-    echo (date '+%F %T') - online
     tput bel
+    echo (date '+%F %T') - online
 end
