@@ -18,7 +18,7 @@ function tmpvenv --description "Create a throwaway python playground"
         matplotlib \
         numpy \
         pandas \
-        psycopg-binary \
+        psycopg[binary] \
         pyarrow \
         pydantic \
         pydantic-settings \
