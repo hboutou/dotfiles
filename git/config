@@ -79,6 +79,7 @@
 [rebase]
     missingCommitsCheck = error
     updateRefs = true
+    autosquash = true
 
 [transfer]
     fsckobjects = true
