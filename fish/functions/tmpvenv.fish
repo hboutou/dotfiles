@@ -16,6 +16,7 @@ function tmpvenv --description "Create a throwaway python playground"
         fastavro \
         ipython \
         matplotlib \
+        mypy \
         numpy \
         pandas \
         psycopg[binary] \
@@ -26,6 +27,7 @@ function tmpvenv --description "Create a throwaway python playground"
         pyright \
         redis \
         requests \
+        ruff \
         scipy \
         xwing \
 
