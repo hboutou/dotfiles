@@ -16,6 +16,7 @@ lazygit
 localstack
 lua
 maccy
+mitmproxy
 moreutils
 mpv
 opentofu
