@@ -4,6 +4,7 @@ bash
 coreutils
 difftastic
 duckdb
+exiftool
 eza
 fish
 fzf
