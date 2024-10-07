@@ -17,6 +17,7 @@ jq
 lazygit
 localstack
 lua
+m1ddc
 maccy
 mitmproxy
 moreutils
