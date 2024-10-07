@@ -11,6 +11,7 @@ git
 gnupg
 gnuplot
 go
+imagemagick
 jq
 lazygit
 localstack
