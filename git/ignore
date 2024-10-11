@@ -1,9 +1,10 @@
+.venv/
+.idea/
+.vscode/
 *~
 *.[oa]
 .*.swp
 *.pem
-.venv/
-.idea/
 .DS_Store
 .env
 
