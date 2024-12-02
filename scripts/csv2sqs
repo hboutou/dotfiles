@@ -1,8 +1,10 @@
 #! /bin/sh
 
+REALPATH=$(realpath "$1")
+
 sqlite3 -bail << EOF
 
-.import --csv "$1" csv
+.import --csv "$REALPATH" csv
 .mode json
 
 WITH cte AS (
