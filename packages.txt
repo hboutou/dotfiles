@@ -26,3 +26,4 @@ tmux
 ttf-ubuntu-font-family
 ttf-dejavu
 watchexec
+xdg-utils
