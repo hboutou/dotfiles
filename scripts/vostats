@@ -2,7 +2,8 @@
 
 REALPATH=$(realpath "$1")
 
-sqlite3 -bail << EOL
+
+/opt/homebrew/opt/sqlite3/bin/sqlite3 -bail << EOL
 .import --csv "$REALPATH" csv
 .excel
 
@@ -16,8 +17,8 @@ WITH cte AS (
 )
 SELECT
     user,
+    STRING_AGG(CAST(strftime('%d', datetime_utc) AS INT), ',' ORDER BY datetime_utc) AS days,
     COUNT(incident) AS "cnt",
-    GROUP_CONCAT(CAST(strftime('%d', datetime_utc) AS INT)) AS days,
     incident
 FROM cte
 WHERE TRUE
