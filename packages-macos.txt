@@ -1,6 +1,7 @@
 asciinema
 avro-tools
 bash
+bind
 coreutils
 difftastic
 duckdb
