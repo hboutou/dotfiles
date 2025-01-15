@@ -7,6 +7,9 @@
 *.pem
 .DS_Store
 .env
+keytab
+jaas.conf
+krb5.conf
 
 [._]*.un~/ # Persistent undo
 
