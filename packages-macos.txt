@@ -39,6 +39,7 @@ terraform
 tldr
 tmux
 tokei
+uv
 watchexec
 whichspace
 zq
