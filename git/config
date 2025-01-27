@@ -41,6 +41,9 @@
     editor = vim
     autocrlf = input
 
+[blame]
+    ignoreRevsFile = .git-blame-ignore-revs
+
 [init]
     defaultBranch = main
 
