@@ -5,6 +5,9 @@
 # dependencies = [
 #     "requests",
 # ]
+# # better reproduceacility
+# [tool.uv]
+# exclude-newer = "2025-01-25T00:00:00Z"
 # ///
 
 import requests
