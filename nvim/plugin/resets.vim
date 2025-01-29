@@ -77,8 +77,8 @@ set ttimeout ttimeoutlen=5
 nnoremap <space> za " space open/closes folds
 
 " file duplication
-set backupdir=~/.vim/backup//,/tmp//                                            
-set directory=~/.vim/swap//,/tmp//                                              
+set backupdir=~/.vim/backup//,/tmp//
+set directory=~/.vim/swap//,/tmp//
 set undodir=~/.vim/undo//,/tmp//
 set noswapfile
 set nobackup
@@ -113,3 +113,6 @@ nnoremap gV `[v`]
 
 " return to last edit position when opening files 
 autocmd BufReadPost * silent! normal! g`"zv
+
+" default to python syntax highlighting for non-dotfile extentionless files
+autocmd BufNewFile,BufRead * if !expand('%:e') && expand('%:t') !~ '^\.' | set syntax=python | endif
