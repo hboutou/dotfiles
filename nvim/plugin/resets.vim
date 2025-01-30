@@ -59,9 +59,10 @@ highlight CursorLineNr cterm=bold ctermbg=none
 " search
 set ignorecase
 set smartcase
-set nohlsearch
+set hlsearch  " to clear highlight :nohls
 set incsearch
 set wrapscan
+set shortmess-=S
 
 " split
 "set splitright
@@ -71,10 +72,19 @@ set timeout timeoutlen=1000
 set ttimeout ttimeoutlen=5
 
 " fold
-"set nofoldenable " enable folding
-"set foldnestmax=1 " nested fold max
-"set foldmethod=indent " fold based on indent level
-nnoremap <space> za " space open/closes folds
+set nofoldenable
+set foldmethod=indent
+set foldlevel=1
+set foldnestmax=1
+" set foldclose=all  " autoclose after navigate out
+" za - toggle fold
+" zo - open fold
+" zc - close fold
+" zm - increases auto fold depth
+" zr - reduces auto fold depth
+" zR - disable auto folding ~ :set foldmethod=syntax
+" also toggle fold with space
+nnoremap <space> za
 
 " file duplication
 set backupdir=~/.vim/backup//,/tmp//
