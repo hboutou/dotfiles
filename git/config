@@ -22,6 +22,8 @@
 
     trash = !"git branch --merged | egrep -v '(^\*|master|main|develop)' | xargs git branch -d"
 
+    blame-ignore = !git blame --ignore-revs-file .git-blame-ignore-revs
+
     s = status --short
     l = log --oneline
 
@@ -42,7 +44,7 @@
     autocrlf = input
 
 [blame]
-    ignoreRevsFile = .git-blame-ignore-revs
+    #ignoreRevsFile = .git-blame-ignore-revs
 
 [init]
     defaultBranch = main
