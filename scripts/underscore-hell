@@ -3,12 +3,13 @@ import sys
 
 def hell(words, index=0, current_string=''):
     if index == len(words) - 1:
-        yield current_string + words[index]
+        yield f"{current_string}{words[index]}"
         return
-    yield from hell(words, index + 1, f'{current_string}{words[index]}_')
-    yield from hell(words, index + 1, f'{current_string}{words[index]}__')
+    yield from hell(words, index + 1, f"{current_string}{words[index]}_")
+    yield from hell(words, index + 1, f"{current_string}{words[index]}__")
 
 
-words = list(filter(None, sys.argv[1].split('_')))
-for s in hell(words):
-    print(s)
+if __name__ == "__main__":
+    words = list(filter(None, sys.argv[1].split('_')))
+    for s in hell(words):
+        print(s)
