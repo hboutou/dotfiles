@@ -1,7 +1,0 @@
-configuration {
-    drun-display-format: "{icon} {name}";
-    modi: "window,run,drun";
-    show-icons: true;
-}
-
-@theme "/usr/share/rofi/themes/gruvbox-dark-hard.rasi"
