@@ -9,6 +9,7 @@ exiftool
 eza
 fish
 fzf
+gdal
 git
 gnupg
 gnuplot
