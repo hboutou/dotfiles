@@ -1,0 +1,3 @@
+[[index]]
+url = "https://artifacts.example.com/repository/pypi-prod-group/simple"
+default = true
