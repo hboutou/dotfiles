@@ -38,6 +38,7 @@ sequoia-sq
 shellcheck
 sshpass
 terraform
+tippecanoe
 tldr
 tmux
 tokei
