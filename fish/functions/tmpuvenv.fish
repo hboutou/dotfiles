@@ -21,7 +21,7 @@ function tmpuvenv --description "Create a throwaway python playground"
         pyarrow \
         pydantic \
         pydantic-settings \
-        pymssql
+        pymssql \
         pyright \
         redis \
         requests \
