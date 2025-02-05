@@ -125,4 +125,4 @@ nnoremap gV `[v`]
 autocmd BufReadPost * silent! normal! g`"zv
 
 " default to python syntax highlighting for non-dotfile extentionless files
-autocmd BufNewFile,BufRead * if !expand('%:e') && expand('%:t') !~ '^\.' | set syntax=python | endif
+autocmd BufNewFile,BufRead * if expand('%:e') == '' && expand('%:t') !~ '^\.' | set syntax=python | endif
