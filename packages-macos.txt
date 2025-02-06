@@ -4,6 +4,7 @@ bash
 bind
 coreutils
 difftastic
+dive
 duckdb
 exiftool
 eza
