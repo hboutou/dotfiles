@@ -2,6 +2,7 @@ asciinema
 avro-tools
 bash
 bind
+colima
 coreutils
 difftastic
 dive
