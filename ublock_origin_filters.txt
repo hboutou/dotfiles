@@ -79,3 +79,6 @@ twitter.com##[aria-label$="trending now" i]
 twitter.com##[aria-label="who to follow" i]:upward(1)
 nav a[href="/i/twitter_blue_sign_up"]
 
+
+
+old.reddit.com##.comment[data-author="AutoModerator"] > .entry.unvoted
