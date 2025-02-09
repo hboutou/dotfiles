@@ -126,3 +126,6 @@ autocmd BufReadPost * silent! normal! g`"zv
 
 " default to python syntax highlighting for non-dotfile extentionless files
 autocmd BufNewFile,BufRead * if expand('%:e') == '' && expand('%:t') !~ '^\.' | set syntax=python | endif
+
+
+autocmd FileType go setlocal noexpandtab shiftwidth=8 tabstop=8 softtabstop=8
