@@ -2,6 +2,8 @@
     # List aliases
     alias = config --get-regexp alias
 
+    whoami = config --get-regexp user
+
     # Show list of contributors in descending order by number of commits
     rank = shortlog -sn --no-merges
 
