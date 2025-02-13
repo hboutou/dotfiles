@@ -29,9 +29,7 @@ def redrive(session, dlq_url, main_queue_url, max_msg=10):
     sqs = session.client('sqs')
     try:
         response = sqs.receive_message(
-            QueueUrl=dlq_url,
-            MaxNumberOfMessages=max_msg,
-            WaitTimeSeconds=0,
+            QueueUrl=dlq_url, WaitTimeSeconds=0, MaxNumberOfMessages=max_msg
         )
     except Exception as e:
         print("Error fetching DLQ messages:", e)
