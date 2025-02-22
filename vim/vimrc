@@ -93,9 +93,12 @@ nnoremap <space> za
 silent! mkdir -p ~/.vim/backup
 silent! mkdir -p ~/.vim/swap
 silent! mkdir -p ~/.vim/undo
+silent! mkdir -p ~/.vim/view
 set backupdir=~/.vim/backup//,/tmp//
 set directory=~/.vim/swap//,/tmp//
 set undodir=~/.vim/undo//,/tmp//
+set viewdir=~/.vim/view//
+set viewoptions=folds,cursor,curdir
 set noswapfile
 set writebackup
 set nobackup
@@ -103,10 +106,6 @@ set hidden
 set undofile
 "set history=9999
 set autoread
-
-silent! mkdir -p ~/.vim/view
-set viewdir=~/.vim/view//
-set viewoptions=folds,cursor,curdir
 
 " MOVEMENT
 " vertical navigation
