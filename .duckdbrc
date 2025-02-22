@@ -1,8 +1,7 @@
 -- https://duckdb.org/docs/sql/query_syntax/setops.html
 -- https://duckdb.org/docs/api/cli/dot_commands.html
 .bail on
-.nullvalue 💩
-.prompt "> "
+.nullvalue 🎁
 
 .headers on
 .timer on
