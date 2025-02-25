@@ -45,6 +45,12 @@
     editor = vim
     autocrlf = input
 
+[apply]
+    whitespace = fix
+
+[format]
+    pretty = fuller
+
 [blame]
     #ignoreRevsFile = .git-blame-ignore-revs
 
@@ -60,8 +66,12 @@
 [diff]  
     algorithm = histogram
     colorMoved = default
+    colorMovedWS = allow-indentation-change
     renames = copy
     mnemonicprefix = true
+
+[color "diff"]
+    whitespace = red reverse
 
 [commit]
     verbose = true
