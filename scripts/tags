@@ -1,13 +1,14 @@
 #!/bin/sh
 
-repos=(
-    DATACALC/calculation-sdk
-    DATAAPI/kafka-consumers
-)
-
 host=msstash.example.com
 
+repos=(
+	DATACALC/calculation-sdk
+	DATAAPI/kafka-consumers
+)
+
+
 for repo in "${repos[@]}"; do
-    tag=$(git -c 'versionsort.suffix=-' ls-remote --exit-code --refs --sort='version:refname' --tags "ssh://git@$host/${repo}.git" '[0-9].[0-9][0-9].[0-9]*' | tail -1)
-    echo "$tag \t $repo"
+	tag=$(git -c 'versionsort.suffix=-' ls-remote --exit-code --refs --sort='version:refname' --tags "ssh://git@$host/${repo}.git" '[0-9].[0-9][0-9].[0-9]*' | tail -1)
+	echo "$tag \t $repo"
 done

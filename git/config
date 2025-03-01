@@ -1,110 +1,106 @@
 [alias]
-    # List aliases
-    alias = config --get-regexp alias
+	alias = config --get-regexp alias
 
-    whoami = config --get-regexp user
+	whoami = config --get-regexp user
 
-    # Show list of contributors in descending order by number of commits
-    rank = shortlog -sn --no-merges
+	# Show list of contributors in descending order by number of commits
+	rank = shortlog -sn --no-merges
+	
+	people = !git log --format='%aE [%aN]' | sort --unique | sort --ignore-case
 
-    # Difftastic
-    difft = !"GIT_EXTERNAL_DIFF=difft git diff"
+	difft = !"GIT_EXTERNAL_DIFF=difft git diff"
 
-    # Add modified files to latest commit
-    oups = !"git add -A -v && git commit --amend -C HEAD"
+	amend = commit --amend
 
-    # Amend latest commit with currently staged files
-    amend = commit --amend --no-edit
+	files-ive-edited = !git log --no-merges --name-only --pretty=format: --author='Hamza' | awk 'NF' | sort -u
 
-    files-ive-edited = !git log --no-merges --name-only --pretty=format: --author='Hamza' | awk 'NF' | sort -u
+	updated = ls-files --modified
 
-    updated = ls-files --modified
+	pushf = push --force-with-lease
 
-    pushf = push --force-with-lease
+	trash = !git branch --merged | egrep -v '(^\*|master|main|develop)' | xargs git branch -d
 
-    trash = !"git branch --merged | egrep -v '(^\*|master|main|develop)' | xargs git branch -d"
+	blame-ignore = !git blame --ignore-revs-file .git-blame-ignore-revs
 
-    blame-ignore = !git blame --ignore-revs-file .git-blame-ignore-revs
-
-    s = status --short
-    l = log --oneline
-
-    ll = log --pretty=format:'%C(auto)%h %>(13)%ar %>(9,trunc)%Cgreen%aL %C(auto)%d %s'
-    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
-    people = !"git log --format='%aE [%aN]' | sort -u | sort --ignore-case"
+	s = status --short
+	l = log --oneline
+	ll = log --pretty=format:'%C(auto)%h %>(13)%ar %>(9,trunc)%Cgreen%aL %C(auto)%d %s'
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 
 [user]
-    name = hboutou
-    email = 22304469+hboutou@users.noreply.github.com
+	name = hboutou
+	email = 22304469+hboutou@users.noreply.github.com
 
 [url "git@github.com:"]
 	insteadOf = git://github.com/
 	insteadOf = https://github.com/
 
 [core]
-    editor = vim
-    autocrlf = input
+	editor = vim
+	autocrlf = input
 
 [apply]
-    whitespace = fix
+	whitespace = fix
 
 [format]
-    pretty = fuller
+	pretty = fuller
 
 [blame]
-    #ignoreRevsFile = .git-blame-ignore-revs
+	#ignoreRevsFile = .git-blame-ignore-revs
 
 [init]
-    defaultBranch = main
+	defaultBranch = main
 
 [branch]
-    sort = -committerdate
+	sort = -committerdate
 
 [tag]
-    sort = version:refname  # taggerdate
+	sort = version:refname  # taggerdate
 
 [diff]  
-    algorithm = histogram
-    colorMoved = default
-    colorMovedWS = allow-indentation-change
-    renames = copy
-    mnemonicprefix = true
+	algorithm = histogram
+	colorMoved = default
+	colorMovedWS = allow-indentation-change
+	renames = copy
+	mnemonicprefix = true
 
 [color "diff"]
-    whitespace = red reverse
+	whitespace = red reverse
 
 [commit]
-    verbose = true
+	verbose = true
 
 [fetch]
-    fsckobjects = true
-    prune = true
-    prunetags = true
+	fsckobjects = true
+	prune = true
+	prunetags = true
 
 [push]
-    default = upstream
-    autoSetupRemote = true
+	default = upstream
+	autoSetupRemote = true
 
 [pull]
-    ff = only
+	ff = only
 
 [merge]
-    conflictStyle = zdiff3
+	conflictStyle = zdiff3
 
 [rerere]
-    enabled = true
+	enabled = true
 
 [rebase]
-    missingCommitsCheck = error
-    updateRefs = true
-    autosquash = true
+	missingCommitsCheck = error
+	updateRefs = true
+	autosquash = true
 
 [transfer]
-    fsckobjects = true
+	fsckobjects = true
 
 [receive]
-    fsckobjects = true
+	fsckobjects = true
 
 [maintenance]
-    auto = false
-    strategy = incremental
+	auto = false
+	strategy = incremental
+
+

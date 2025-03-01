@@ -15,7 +15,7 @@ krb5.conf
 
 *.sqlite*
 
-# for when the spaghetti ghoul shows up
+# minimal reproducible bugs
 [Tt]ry.*
 [Tt]ry?.*
 [Mm]ain?.*
