@@ -8,6 +8,8 @@
 	
 	people = !git log --format='%aE [%aN]' | sort --unique | sort --ignore-case
 
+	last-commit-per-author = !"git log --date=unix --format='%h,%aE,%aN,%cd,\"%ar\"' | sqlite3 :memory: 'CREATE TABLE csv(hash,email,name,epoch,relative_time);' '.import --csv /dev/stdin csv' 'WITH cte AS (SELECT *, ROW_NUMBER() OVER (PARTITION BY email, name ORDER BY epoch DESC) AS rn FROM csv) SELECT hash, relative_time, email, name FROM cte WHERE rn=1 ORDER BY LOWER(email), epoch DESC, name;'"
+
 	difft = !"GIT_EXTERNAL_DIFF=difft git diff"
 
 	amend = commit --amend
