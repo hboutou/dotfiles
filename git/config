@@ -8,7 +8,8 @@
 	pushf = push --force-with-lease
 	updated = ls-files --modified
 	rearview = !git log --no-merges --name-only --pretty=format: --author='Hamza' | awk 'NF' | sort -u
-	committers = !git log --format="%ae:%an:%h:%ar" | awk -F: '!seen[$1]++' | column -ts:
+	authors = !git log --format="%ae:%an:%h:%ar" | awk -F: '!seen[$1]++' | column -ts:
+	cheese-touch = log --format='%<(20)%ar %an' -n8 --
 	blame-ignore = blame --ignore-revs-file .git-blame-ignore-revs
 	s = status --short
 	l = log --oneline
