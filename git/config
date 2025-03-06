@@ -9,7 +9,7 @@
 	updated = ls-files --modified
 	rearview = !git log --no-merges --name-only --pretty=format: --author='Hamza' | awk 'NF' | sort -u
 	committers = !git log --format="%aE:%aN:%h:%ar" | awk -F: '!seen[$1]++' | column -ts:
-	blame-ignore = !git blame --ignore-revs-file .git-blame-ignore-revs
+	blame-ignore = blame --ignore-revs-file .git-blame-ignore-revs
 	s = status --short
 	l = log --oneline
 	ll = log --pretty=format:'%C(auto)%h %>(13)%ar %>(9,trunc)%Cgreen%aL %C(auto)%d %s'
