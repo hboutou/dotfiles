@@ -7,6 +7,8 @@ set PYTHONDONTWRITEBYTECODE 1
 
 set DOTNET_CLI_TELEMETRY_OPTOUT 1
 
+set AWS_JAVA_V1_DISABLE_DEPRECATION_ANNOUNCEMENT true
+
 set -Ux LESS -R -S -F
 
 # integrate aws_completer see: https://github.com/aws/aws-cli/issues/1079
