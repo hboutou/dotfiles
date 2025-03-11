@@ -1,15 +1,15 @@
 function tmpuvenv --description "Create a throwaway python playground"
 	set --local venvdir "/tmp/.tmpvenv"
 
-	if test -f "${venvdir}/bin/activate.fish"
-		source "${venvdir}/bin/activate.fish"
+	if test -f "$venvdir/bin/activate.fish"
+		source "$venvdir/bin/activate.fish"
 		return
 	end
 
-	rm -rf "${venvdir}"
-	uv venv --seed --python 3.13 "${venvdir}"
+	rm -rf "$venvdir"
+	uv venv --seed --python 3.13 "$venvdir"
 
-	VIRTUAL_ENV="${venvdir}" uv pip install \
+	VIRTUAL_ENV="$venvdir" uv pip install \
 		boto3 \
 		duckdb \
 		fastavro \
@@ -28,5 +28,5 @@ function tmpuvenv --description "Create a throwaway python playground"
 		xwing \
 	;
 
-	source "${venvdir}/bin/activate.fish"
+	source "$venvdir/bin/activate.fish"
 end

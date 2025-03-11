@@ -25,11 +25,11 @@ def aws_account(session) -> str:
         quit('Expired token')
 
 
-def redrive(session, dlq_url, main_queue_url, max_msg=10):
+def redrive(session, src_url, dst_url, max_msg=10):
     sqs = session.client('sqs')
     try:
         response = sqs.receive_message(
-            QueueUrl=dlq_url, WaitTimeSeconds=0, MaxNumberOfMessages=max_msg
+            QueueUrl=src_url, WaitTimeSeconds=0, MaxNumberOfMessages=max_msg
         )
         messages = response.get('Messages')
     except Exception as e:
@@ -42,8 +42,8 @@ def redrive(session, dlq_url, main_queue_url, max_msg=10):
 
     try:
         for i, message in enumerate(messages, start=1):
-            sqs.send_message(QueueUrl=main_queue_url, MessageBody=message['Body'])
-            sqs.delete_message(QueueUrl=dlq_url, ReceiptHandle=message['ReceiptHandle'])
+            sqs.send_message(QueueUrl=dst_url, MessageBody=message['Body'])
+            sqs.delete_message(QueueUrl=src_url, ReceiptHandle=message['ReceiptHandle'])
             print(f"{i:>2} {message['MessageId']}")
     except Exception as e:
         print("Error processing DLQ message:", e)
@@ -51,16 +51,16 @@ def redrive(session, dlq_url, main_queue_url, max_msg=10):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('--queue', type=str, required=True)
     parser.add_argument('--profile', type=str, default='default')
+    parser.add_argument('--queue', type=str, required=True)
     parser.add_argument('--max', type=int, default=10, choices=range(1, 11))
     args = parser.parse_args()
-    args.queue = args.queue.removesuffix('-dlq')
 
     session = boto3.Session(profile_name=args.profile)
     account = aws_account(session)
 
-    que_url = f'https://sqs.{session.region_name}.amazonaws.com/{account}/{args.queue}'
-    dlq_url = f'https://sqs.{session.region_name}.amazonaws.com/{account}/{args.queue}-dlq'
+    args.queue = args.queue.removesuffix('-dlq')
+    src = f'https://sqs.{session.region_name}.amazonaws.com/{account}/{args.queue}-dlq'
+    dst = f'https://sqs.{session.region_name}.amazonaws.com/{account}/{args.queue}'
 
-    redrive(session, dlq_url, que_url, args.max)
+    redrive(session, src, dst, args.max)

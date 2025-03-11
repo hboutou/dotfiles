@@ -1,31 +1,36 @@
-#! /bin/sh
+#!/bin/sh
+
 
 REALPATH=$(realpath "$1")
-
 
 /opt/homebrew/opt/sqlite3/bin/sqlite3 -bail << EOL
 .import --csv "$REALPATH" csv
 .excel
 
 WITH cte AS (
-    SELECT 
-        " User" AS "user",
-        SUBSTR("Incident", 10) AS "incident",
-        " Date Time (UTC)" AS datetime_utc,
-        " Event" AS event
-    FROM csv
+	SELECT 
+		" User" AS "user",
+		SUBSTR("Incident", 10) AS "incident",
+		" Date Time (UTC)" AS datetime_utc,
+		" Event" AS event
+	FROM csv
 )
 SELECT
-    user,
-    STRING_AGG(CAST(strftime('%d', datetime_utc) AS INT), ',' ORDER BY datetime_utc) AS days,
-    COUNT(incident) AS "cnt",
-    incident
+	user,
+	STRING_AGG(CAST(strftime('%d', datetime_utc) AS INT), ',' ORDER BY datetime_utc) AS days,
+	COUNT(incident) AS "cnt",
+	incident
 FROM cte
 WHERE TRUE
-    -- AND user IN ('hamza.boutou','SYSTEM')
-    -- AND event = 'RESOLVED' -- 'ACKED'
-GROUP BY incident, user
-ORDER BY user, COUNT(incident) DESC
+	AND user = 'hamza.boutou'
+	AND event = 'RESOLVED'
+	--AND user IN ('hamza.boutou', 'SYSTEM')
+	--AND event IN ('RESOLVED', 'ACKED')
+GROUP BY
+	incident, user
+ORDER BY
+	user, COUNT(incident) DESC
 ;
 
 EOL
+

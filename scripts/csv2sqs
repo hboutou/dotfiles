@@ -1,4 +1,5 @@
-#! /bin/sh
+#!/bin/sh
+
 
 REALPATH=$(realpath "$1")
 
@@ -8,21 +9,22 @@ sqlite3 -bail << EOF
 .mode json
 
 WITH cte AS (
-    SELECT DISTINCT
-        CAST(mpid AS INT) AS mpid,
-        CAST(date AS INT) AS date
-    FROM csv
-    ORDER BY mpid, date
+	SELECT DISTINCT
+		CAST(mpid AS INT) AS mpid,
+		CAST(date AS INT) AS date
+	FROM csv
+	ORDER BY mpid, date
 )   
 
 SELECT
-    mpid || '-' || date AS "Id",
-    json_object(
-        'masterPortfolioId', mpid,
-        'portfolioDate', date,
-        'requestId', '0000'
-    ) AS "MessageBody"
+	mpid || '-' || date AS "Id",
+	JSON_OBJECT(
+		'masterPortfolioId', mpid,
+		'portfolioDate', date,
+		'requestId',  STRFTIME('hamza-%FT%H:%M', CURRENT_TIMESTAMP)
+	) AS "MessageBody"
 FROM cte
 ;
 
 EOF
+

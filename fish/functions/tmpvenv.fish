@@ -1,16 +1,16 @@
 function tmpvenv --description "Create a throwaway python playground"
 	set --local venvdir "/tmp/.tmpvenv"
 
-	if test -f "${venvdir}/bin/activate.fish"
-		source "${venvdir}/bin/activate.fish"
+	if test -f "$venvdir/bin/activate.fish"
+		source "$venvdir/bin/activate.fish"
 		return
 	end
 
 	rm -rf "$venvdir"
-	python3.13 -m venv "${venvdir}"
+	python3.13 -m venv "$venvdir"
 
-	"${venvdir}/bin/pip" install --upgrade pip
-	"${venvdir}/bin/pip" --verbose --no-cache-dir install \
+	"$venvdir/bin/pip" install --upgrade pip
+	"$venvdir/bin/pip" --verbose --no-cache-dir install \
 		boto3 \
 		duckdb \
 		fastavro \
@@ -31,6 +31,6 @@ function tmpvenv --description "Create a throwaway python playground"
 		xwing \
 	;
 
-	source "${venvdir}/bin/activate.fish"
+	source "$venvdir/bin/activate.fish"
 end
 

@@ -15,7 +15,7 @@ krb5.conf
 
 *.sqlite*
 
-# minimal reproducible bugs
+# bug reproducers
+[Mm]ain?.*
 [Tt]ry.*
 [Tt]ry?.*
-[Mm]ain?.*
