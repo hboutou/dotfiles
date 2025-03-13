@@ -8,3 +8,4 @@
 .mode column
 
 SET temp_directory TO '/tmp';
+SET enable_external_access TO false;
