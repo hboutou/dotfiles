@@ -34,9 +34,6 @@
 [format]
 	pretty = fuller
 
-[blame]
-	#ignoreRevsFile = .git-blame-ignore-revs
-
 [init]
 	defaultBranch = main
 
@@ -91,5 +88,4 @@
 [maintenance]
 	auto = false
 	strategy = incremental
-
 

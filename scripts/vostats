@@ -26,11 +26,11 @@ WHERE TRUE
 	AND event = 'RESOLVED'
 	--AND user IN ('hamza.boutou', 'SYSTEM')
 	--AND event IN ('RESOLVED', 'ACKED')
+	--AND incident LIKE '%'
 GROUP BY
 	incident, user
 ORDER BY
 	user, COUNT(incident) DESC
 ;
-
 EOL
 

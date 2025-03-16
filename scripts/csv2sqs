@@ -4,7 +4,6 @@
 REALPATH=$(realpath "$1")
 
 sqlite3 -bail << EOF
-
 .import --csv "$REALPATH" csv
 .mode json
 
@@ -25,6 +24,5 @@ SELECT
 	) AS "MessageBody"
 FROM cte
 ;
-
 EOF
 

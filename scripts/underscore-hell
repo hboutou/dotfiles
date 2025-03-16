@@ -13,3 +13,4 @@ if __name__ == "__main__":
     words = list(filter(None, sys.argv[1].split('_')))
     for s in hell(words):
         print(s)
+
