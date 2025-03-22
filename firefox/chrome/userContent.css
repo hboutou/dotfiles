@@ -16,3 +16,7 @@
   }
 }
 
+/* remove visual noise */
+@-moz-document url("about:home"), url("about:newtab"){
+  .logo-and-wordmark{ display: none !important; }
+}
