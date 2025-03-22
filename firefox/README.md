@@ -18,13 +18,13 @@ create `privacy.webrtc.hideGlobalIndicator: true`
 browser.newtabpage.activity-stream.default.sites
 ```
 
+# extras
+```
+browser.uidensity 1
 
 # keyboard input lag
-```
-set accessibility.force_disabled to 1
-```
+accessibility.force_disabled 1
 
 # calculator
-```
-set browser.urlbar.suggest.calculator 1
+browser.urlbar.suggest.calculator 1
 ```
