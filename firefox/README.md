@@ -21,6 +21,7 @@ browser.newtabpage.activity-stream.default.sites
 # extras
 ```
 browser.uidensity 1
+browser.compactmode.show true
 
 # keyboard input lag
 accessibility.force_disabled 1
