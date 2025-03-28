@@ -7,6 +7,7 @@
 	amend = commit --amend
 	pushf = push --force-with-lease
 	updated = ls-files --modified
+	ignored = ls-files --ignored --others --exclude-standard
 	rearview = !git log --no-merges --name-only --pretty=format: --author='Hamza' | awk 'NF' | sort -u
 	authors = !git log --format="%ae:%an:%h:%ar" | awk -F: '!seen[$1]++' | column -ts:
 	cheese-touch = log --format='%<(20)%ar %an' -n8 --
