@@ -1,10 +1,10 @@
 #!/bin/sh
 
 
-REALPATH=$(realpath "$1")
+pathname=$(realpath "$1")
 
 sqlite3 -bail << EOF
-.import --csv "$REALPATH" csv
+.import --csv "$pathname" csv
 .mode json
 
 WITH cte AS (
@@ -13,7 +13,7 @@ WITH cte AS (
 		CAST(date AS INT) AS date
 	FROM csv
 	ORDER BY mpid, date
-)   
+)
 
 SELECT
 	mpid || '-' || date AS "Id",

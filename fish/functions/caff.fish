@@ -1,3 +1,3 @@
 function caff
-	caffeinate -d $argv 
+	caffeinate -d $argv
 end

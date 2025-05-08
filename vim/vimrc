@@ -21,7 +21,7 @@ filetype indent on
 
 set laststatus=2
 set statusline=buf\ %n:\ %F\ %m%r\ %=%l,%c\ \ \ \ \ \ \ \ %p%%
- 
+
 set wildmenu
 set wildoptions=pum
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.sqlite,*.o,*.a

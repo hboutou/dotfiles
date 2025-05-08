@@ -18,8 +18,10 @@ clusters=(
 for cluster in "${clusters[@]}"
 do
 	echo ">> cluster: $cluster"
-	aws ecs list-services --cluster "${cluster}" --output json | jq -r '.serviceArns[]' | sort \
-		| xargs -n10  aws ecs describe-services --no-cli-pager --output=table \
-			--query 'services[?desiredCount>=`1`].{Desired:desiredCount, Running:runningCount, ServiceName:serviceName}' \
+	aws ecs list-services --cluster "${cluster}" --output json \
+		| jq -r '.serviceArns[]' \
+		| sort \
+		| xargs -n 10 aws ecs describe-services --no-cli-pager --output=table \
+			--query 'services[?desiredCount>=`1`].{Desired:desiredCount, Running:runningCount, Service:serviceName}' \
 			--cluster "${cluster}" --services
 done

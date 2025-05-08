@@ -1,14 +1,14 @@
 #!/bin/sh
 
 
-REALPATH=$(realpath "$1")
+pathname=$(realpath "$1")
 
 /opt/homebrew/opt/sqlite3/bin/sqlite3 -bail << EOL
-.import --csv "$REALPATH" csv
+.import --csv "$pathname" csv
 .excel
 
 WITH cte AS (
-	SELECT 
+	SELECT
 		" User" AS "user",
 		SUBSTR("Incident", 10) AS "incident",
 		" Date Time (UTC)" AS datetime_utc,

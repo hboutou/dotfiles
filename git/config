@@ -2,16 +2,16 @@
 	alias = config --get-regexp alias
 	whoami = config --get-regexp user
 	rank = shortlog -sn --no-merges
-	difft = !"GIT_EXTERNAL_DIFF=difft git diff"
 	tidy = !git branch --merged | egrep -v '(^\*|master|main|develop)' | xargs git branch -d
+	difft = !"GIT_EXTERNAL_DIFF=difft git diff"
 	amend = commit --amend
 	pushf = push --force-with-lease
-	updated = ls-files --modified
-	ignored = ls-files --ignored --others --exclude-standard
+	blame-ignore = blame --ignore-revs-file .git-blame-ignore-revs
 	rearview = !git log --no-merges --name-only --pretty=format: --author='Hamza' | awk 'NF' | sort -u
 	authors = !git log --format="%ae:%an:%h:%ar" | awk -F: '!seen[$1]++' | column -ts:
-	cheese-touch = log --format='%<(20)%ar %an' -n8 --
-	blame-ignore = blame --ignore-revs-file .git-blame-ignore-revs
+	updated = ls-files --modified
+	ignored = ls-files --ignored --others --exclude-standard
+	history = log --follow --pretty=format:'%C(auto)%h %>(13)%ar %>(9,trunc)%Cgreen%aL %C(auto)%d %s' --
 	s = status --short
 	l = log --oneline
 	ll = log --pretty=format:'%C(auto)%h %>(13)%ar %>(9,trunc)%Cgreen%aL %C(auto)%d %s'
@@ -28,6 +28,7 @@
 [core]
 	editor = vim
 	autocrlf = input
+	whitespace = trailing-space,space-before-tab
 
 [apply]
 	whitespace = fix
@@ -44,7 +45,7 @@
 [tag]
 	sort = version:refname  # taggerdate
 
-[diff]  
+[diff]
 	algorithm = histogram
 	colorMoved = default
 	colorMovedWS = allow-indentation-change

@@ -6,6 +6,7 @@ colima
 coreutils
 difftastic
 dive
+docker
 duckdb
 exiftool
 eza
@@ -20,7 +21,6 @@ go
 imagemagick
 jq
 lazygit
-localstack
 lua
 m1ddc
 maccy
@@ -31,7 +31,6 @@ opentofu
 parallel
 podman
 pstree
-python@3.7
 python@3.9
 python@3.11
 python@3.13
@@ -39,15 +38,13 @@ redis
 ruff
 sequoia-sq
 shellcheck
-sshpass
 terraform
 tippecanoe
-tldr
 tmux
 tokei
 uv
 watchexec
-whichspace
+
 
 --cask dbeaver-community
 --cask parallels
@@ -55,5 +52,6 @@ whichspace
 --cask ollama
 --cask vmware-fusion
 --cask wireshark
+--cask whichspace
 
 

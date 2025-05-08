@@ -33,11 +33,11 @@ def redrive(session, src_url, dst_url, max_msg=10):
         )
         messages = response.get('Messages')
     except Exception as e:
-        print("Error fetching DLQ messages:", e)
+        print(f"Error fetching messages from source {src_url}", e)
         return
-        
+
     if not messages:
-        print("No messages in DLQ.")
+        print(f"No messages in source {src_url}.")
         return
 
     try:
@@ -46,7 +46,7 @@ def redrive(session, src_url, dst_url, max_msg=10):
             sqs.delete_message(QueueUrl=src_url, ReceiptHandle=message['ReceiptHandle'])
             print(f"{i:>2} {message['MessageId']}")
     except Exception as e:
-        print("Error processing DLQ message:", e)
+        print("Error processing message:", e)
 
 
 if __name__ == "__main__":
@@ -60,7 +60,8 @@ if __name__ == "__main__":
     account = aws_account(session)
 
     args.queue = args.queue.removesuffix('-dlq')
-    src = f'https://sqs.{session.region_name}.amazonaws.com/{account}/{args.queue}-dlq'
-    dst = f'https://sqs.{session.region_name}.amazonaws.com/{account}/{args.queue}'
+    que = f'https://sqs.{session.region_name}.amazonaws.com/{account}/{args.queue}'
+    dlq = f'https://sqs.{session.region_name}.amazonaws.com/{account}/{args.queue}-dlq'
 
-    redrive(session, src, dst, args.max)
+    redrive(session, dlq, que, args.max)
+

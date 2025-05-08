@@ -6,7 +6,7 @@ Changes I usually apply to firefox based browsers
 3. restart browser
 
 # disable audio/video indicator because it is annoying and also throws xml parsing error
-Go to about:config and change 
+Go to about:config and change
 set `privacy.webrtc.legacyGlobalIndicator: false`
 create `privacy.webrtc.hideGlobalIndicator: true`
 
@@ -28,4 +28,11 @@ accessibility.force_disabled 1
 
 # calculator
 browser.urlbar.suggest.calculator 1
+
+# limit referer to same-host
+network.http.referer.XOriginPolicy 2
+
+# or disable referer.
+network.http.sendRefererHeader 0
+
 ```
