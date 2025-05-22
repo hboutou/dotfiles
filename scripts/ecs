@@ -17,11 +17,13 @@ clusters=(
 
 for cluster in "${clusters[@]}"
 do
-	echo ">> cluster: $cluster"
-	aws ecs list-services --cluster "${cluster}" --output json \
-		| jq -r '.serviceArns[]' \
+	aws ecs list-services --cluster="${cluster}" --output=json \
+		| jq --raw-output '.serviceArns[]' \
 		| sort \
-		| xargs -n 10 aws ecs describe-services --no-cli-pager --output=table \
-			--query 'services[?desiredCount>=`1`].{Desired:desiredCount, Running:runningCount, Service:serviceName}' \
-			--cluster "${cluster}" --services
+		| xargs -L10 aws ecs describe-services --no-cli-pager --output=json \
+			--query "services[?desiredCount>=\`1\` || runningCount>=\`1\`].{desired:desiredCount, running:runningCount, service:serviceName, cluster:\`${cluster}\`}" \
+			--cluster "${cluster}" --services \
+		| jq --compact-output '.[]' \
+		| duckdb -c '.mode box' -c "SELECT running, desired, service, cluster FROM READ_NDJSON('/dev/stdin');" \
+	;
 done
