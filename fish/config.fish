@@ -1,6 +1,9 @@
 fish_add_path $HOME/scripts
 fish_add_path $HOME/go/bin
+
 set -g fish_greeting ""
+set fish_color_valid_path
+
 set PYTHONDONTWRITEBYTECODE 1
 set DOTNET_CLI_TELEMETRY_OPTOUT 1
 set AWS_JAVA_V1_DISABLE_DEPRECATION_ANNOUNCEMENT true
