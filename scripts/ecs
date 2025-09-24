@@ -24,6 +24,6 @@ do
 			--query "services[?desiredCount>=\`1\` || runningCount>=\`1\`].{desired:desiredCount, running:runningCount, service:serviceName, cluster:\`${cluster}\`}" \
 			--cluster "${cluster}" --services \
 		| jq --compact-output '.[]' \
-		| duckdb -c '.mode box' -c "SELECT running, desired, service, cluster FROM READ_NDJSON('/dev/stdin');" \
+		| duckdb -init /dev/null -c '.mode box' -c "SELECT running, desired, service, cluster FROM READ_NDJSON('/dev/stdin');" \
 	;
 done
