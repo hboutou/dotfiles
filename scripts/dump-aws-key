@@ -1,0 +1,18 @@
+#!/bin/sh
+
+mv "$HOME/.aws/credentials" "$HOME/.aws/credentials.$(date +%FT%T)"
+
+key=$(pbpaste | egrep 'aws_access_key_id|aws_secret_access_key|aws_session_token' | tr -d '\r')
+
+echo """
+[default]
+$key
+
+[duckdb]
+$key
+
+[prod]
+""" > "$HOME/.aws/credentials"
+
+aws sts get-caller-identity --no-cli-pager --profile default
+
