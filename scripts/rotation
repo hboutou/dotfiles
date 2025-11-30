@@ -1,0 +1,24 @@
+#! /usr/bin/env python3
+import datetime
+from collections import defaultdict
+from itertools import cycle
+from pprint import pp
+
+lineup = [
+	"Ak",
+	"Rv",
+	"Dr",
+	"Hm",
+	"Aj",
+	"Yj",
+	"Sv",
+	"Kr",
+	"Jy",
+]
+startdate = datetime.date(2023, 1, 1)
+schedule = defaultdict(list)
+for i, name in zip(range(26), cycle(lineup)):
+	date = startdate + datetime.timedelta(days=i * 14)
+	schedule[name].append(date.strftime("%F"))
+	print(d, name)
+pp(schedule)

@@ -4,12 +4,14 @@ bash
 bind
 colima
 coreutils
+deno
 difftastic
 dive
 docker
 duckdb
 exiftool
 eza
+ffmpeg
 fish
 freetds
 fzf
@@ -38,6 +40,9 @@ redis
 ruff
 sequoia-sq
 shellcheck
+sonar-scanner
+sqlite
+tailwindcss
 terraform
 tippecanoe
 tmux
@@ -48,11 +53,14 @@ yt-dlp
 
 
 --cask dbeaver-community
---cask parallels
+--cask ghostty
+--cask krita
+--cask neovide
 --cask obsidian
 --cask ollama
+--cask parallels
 --cask vmware-fusion
---cask wireshark
 --cask whichspace
-
+--cask wireshark
+--cask yaak
 

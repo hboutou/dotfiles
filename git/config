@@ -2,8 +2,8 @@
 	alias = config --get-regexp alias
 	whoami = config --get-regexp user
 	rank = shortlog -sn --no-merges
-	tidy = !git branch --merged | egrep -v '(^\*|master|main|develop)' | xargs git branch -d
-	difft = !"GIT_EXTERNAL_DIFF=difft git diff"
+	tidy = !git branch --merged | egrep -v '(^\\*|master|main|develop)' | xargs git branch -d
+	difft = !GIT_EXTERNAL_DIFF=difft git diff
 	amend = commit --amend
 	pushf = push --force-with-lease
 	blame-ignore = blame --ignore-revs-file .git-blame-ignore-revs
