@@ -29,19 +29,19 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.sqlite,*.o,*.a
 set complete=.,w,b,u,t
 set completeopt=longest,menuone
 
-set expandtab
-set shiftround
-set shiftwidth=4
+"set expandtab
+"set shiftround
+"set shiftwidth=4
 set autoindent
 set smartindent
-set softtabstop=4
-set tabstop=4
+"set softtabstop=4
+"set tabstop=4
 set nowrap
-set linebreak
+"set linebreak
 
 " line number
-set number
-set relativenumber
+"set number
+"set relativenumber
 set cursorline
 set cursorlineopt=number
 

@@ -1,10 +1,13 @@
 [alias]
 	alias = config --get-regexp alias
 	whoami = config --get-regexp user
+	root = rev-parse --show-toplevel
 	rank = shortlog -sn --no-merges
-	tidy = !git branch --merged | egrep -v '(^\*|master|main|develop)' | xargs git branch -d
-	difft = !"GIT_EXTERNAL_DIFF=difft git diff"
-	amend = commit --amend
+	tidy = !git branch --merged | egrep -v '(^\\*|master|main|develop)' | xargs git branch -d
+	stat = diff --stat
+	difft = !GIT_EXTERNAL_DIFF=difft git diff
+	amend = commit --amend --no-edit
+	fixup = rebase -i --autosquash HEAD@{u}
 	pushf = push --force-with-lease
 	blame-ignore = blame --ignore-revs-file .git-blame-ignore-revs
 	rearview = !git log --no-merges --name-only --pretty=format: --author='Hamza' | awk 'NF' | sort -u

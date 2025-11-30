@@ -4,12 +4,15 @@ bash
 bind
 colima
 coreutils
+curl
+deno
 difftastic
 dive
 docker
 duckdb
 exiftool
 eza
+ffmpeg
 fish
 freetds
 fzf
@@ -35,24 +38,33 @@ python@3.9
 python@3.11
 python@3.13
 redis
+ripgrep
 ruff
 sequoia-sq
 shellcheck
+sonar-scanner
+sqlite
+tailwindcss
 terraform
 tippecanoe
 tmux
 tokei
 uv
 watchexec
+wireguard-tools
 yt-dlp
 
 
 --cask dbeaver-community
---cask parallels
+--cask ghostty
+--cask kicad
+--cask krita
+--cask neovide
 --cask obsidian
 --cask ollama
+--cask parallels
 --cask vmware-fusion
---cask wireshark
 --cask whichspace
-
+--cask wireshark
+--cask yaak
 

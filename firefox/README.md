@@ -15,7 +15,9 @@ create `privacy.webrtc.hideGlobalIndicator: true`
 ```
 # source: https://ask.metafilter.com/344500/Cant-delete-some-items-from-Firefox-One-click-search
 # empty this field
-browser.newtabpage.activity-stream.default.sites
+browser.newtabpage.activity-stream.default.sites ""
+browser.newtabpage.activity-stream.showSponsoredTopSites false
+services.sync.prefs.sync.browser.newtabpage.activity-stream.showSponsoredTopSites false
 ```
 
 # extras
