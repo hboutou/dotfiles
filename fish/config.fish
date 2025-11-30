@@ -5,6 +5,8 @@ fish_add_path /opt/homebrew/bin
 set -g fish_greeting ""
 set -g fish_color_valid_path ""
 
+set PIP_REQUIRE_VIRTUALENV 1
+set PYTHONUNBUFFERED 1
 set PYTHONDONTWRITEBYTECODE 1
 set DOTNET_CLI_TELEMETRY_OPTOUT 1
 set AWS_JAVA_V1_DISABLE_DEPRECATION_ANNOUNCEMENT true
