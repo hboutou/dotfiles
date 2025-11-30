@@ -1,0 +1,98 @@
+#! /usr/bin/env -S uv run --no-progress --script
+# /// script
+# requires-python = ">=3.14"
+# dependencies = [
+#     "boto3",
+#     "polars",
+# ]
+# ///
+"""Snapshot of ECS state"""
+
+import argparse
+import datetime
+import itertools
+from collections.abc import Iterator
+
+import boto3
+import polars as pl
+
+
+CLUSTERS_PROD = [
+	"ps-cp",
+	"ps-dcpc",
+	"ps-etl",
+	"ps-gv",
+	"ps-mp",
+	"ps-su",
+]
+
+CLUSTERS_STG = [f"stg-{c}" for c in CLUSTERS_PROD]
+
+
+def fetch_services(session: boto3.Session, cluster: str) -> Iterator[dict]:
+	ecs = session.client("ecs")
+	pages = ecs.get_paginator("list_services").paginate(cluster=cluster)
+	service_arns = (arn for p in pages for arn in p.get("serviceArns"))
+	for arns in itertools.batched(service_arns, n=10):
+		for service in ecs.describe_services(cluster=cluster, services=arns).get("services"):
+			response = ecs.describe_task_definition(task_definition=service.get("taskDefinition"))
+			images = [container["image"].split(".com/", maxsplit=1)[-1] for container in response["taskDefinition"]["containerDefinitions"]]
+			yield {
+				"running": service.get("runningCount"),
+				"desired": service.get("desiredCount"),
+				"service": service.get("serviceName"),
+				"status": service.get("status"),
+				"images": ",".join(images),
+				"cluster": cluster,
+			}
+
+
+def main(args):
+	session = boto3.Session(profile_name=args.profile)
+
+	clusters = CLUSTER_PROD if args.profile == 'prod' else CLUSTER_STG
+
+	now = datetime.datetime.now()
+	print(now.astimezone(datetime.UTC).strftime("%F %T %Z %z"))
+	print(now.strftime("%F %T %Z %z"))
+
+	services = [
+		service
+		for cluster in clusters
+		for service in fetch_services(session, cluster)
+	]
+
+	df = (
+		pl.DataFrame(services)
+		.filter(pl.col("desired") > 0)
+		#.filter(~pl.col("images").str.contains("2.74"))
+		.with_column(
+			pl.when(pl.col("desired") != pl.col("running"))
+			.then(pl.format("❗️{}", pl.col("service")))
+			.otherwise(pl.col("service"))
+			.alias("service")
+		)
+		.sort(
+			pl.col("running") == pl.col("desired"),
+			pl.col("cluster"),
+			pl.col("images"),
+			pl.col("service"),
+		)
+		.with_row_index(name="#", offset=1)
+	)
+
+	print(df)
+
+
+if __name__ == '__main__':
+	parser = argparse.ArgumentParser()
+	parser.add_argument("--profile", type=str, default="default")
+	args = parser.parse_args()
+
+	pl.Config(tbl_rows=-1, tbl_cols=-1)
+	pl.Config.set_fmt_str_lengths(999)
+	pl.Config.set_tbl_width_chars(999)
+	pl.Config.set_tbl_hide_column_data_types(True)
+	pl.Config.set_tbl_hide_dataframe_shapes(True)
+	main(args)
+

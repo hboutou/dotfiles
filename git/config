@@ -1,14 +1,21 @@
 [alias]
 	alias = config --get-regexp alias
 	whoami = config --get-regexp user
-	rank = shortlog -sn --no-merges
-	tidy = !git branch --merged | egrep -v '(^\*|master|main|develop)' | xargs git branch -d
-	difft = !"GIT_EXTERNAL_DIFF=difft git diff"
-	amend = commit --amend
+	reword = rebase -i HEAD@{u}
+	squash = rebase --autosquash HEAD@{u}
+	fixup = !git log -n 50 --pretty=format:'%h %s' --no-merges | fzf --no-sort | cut -c -7 | xargs -o git commit --fixup
+	root = rev-parse --show-toplevel
+	rank = shortlog --summary --numbered --no-merges
+	tidy = !git branch --merged | egrep -v '(^\\*|master|main|develop)' | xargs git branch -d
+	stat = diff --stat
+	difft = !GIT_EXTERNAL_DIFF=difft git diff
+	count = rev-list --count --all
+	amend = commit --amend --no-edit
 	pushf = push --force-with-lease
 	blame-ignore = blame --ignore-revs-file .git-blame-ignore-revs
-	rearview = !git log --no-merges --name-only --pretty=format: --author='Hamza' | awk 'NF' | sort -u
-	authors = !git log --format="%ae:%an:%h:%ar" | awk -F: '!seen[$1]++' | column -ts:
+	touchedby = "!f() { git log --no-merges --name-only --pretty=format: --regexp-ignore-case --author=\"$1\" | awk 'NF' | sort -u; }; f"
+	contains = branch --all --contains
+	authors = !git log --format="%ae:%an:%h:%ar" | awk -F: '!seen[tolower($1)]++' | column -ts:
 	updated = ls-files --modified
 	ignored = ls-files --ignored --others --exclude-standard
 	history = log --follow --pretty=format:'%C(auto)%h %>(13)%ar %>(9,trunc)%Cgreen%aL %C(auto)%d %s' --
@@ -16,6 +23,11 @@
 	l = log --oneline
 	ll = log --pretty=format:'%C(auto)%h %>(13)%ar %>(9,trunc)%Cgreen%aL %C(auto)%d %s'
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+
+[pager]
+	rank = false
+	updated = false
+	ignored = false
 
 [user]
 	name = hboutou
@@ -28,7 +40,7 @@
 [core]
 	editor = vim
 	autocrlf = input
-	whitespace = trailing-space,space-before-tab
+	whitespace = trailing-space,space-before-tab #,blank-at-eol,blank-at-eof,cr-at-eol
 
 [apply]
 	whitespace = fix
@@ -64,7 +76,7 @@
 	prunetags = true
 
 [push]
-	default = upstream
+	default = simple
 	autoSetupRemote = true
 
 [pull]

@@ -4,6 +4,7 @@ set path+=**
 set belloff=esc
 set noerrorbells
 set novisualbell
+"au BufWinEnter *.md :setlocal matchpairs-=<:>
 set nocompatible
 set showcmd
 set showmode
@@ -11,9 +12,14 @@ set ruler
 set lazyredraw
 set ttyfast
 
-set termguicolors
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+"set termguicolors
+"let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+"let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+set background=dark
+if match(&term, "-256color$") > -1
+    set t_Co=256
+endif
 
 syntax enable
 filetype plugin on
@@ -29,19 +35,19 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.sqlite,*.o,*.a
 set complete=.,w,b,u,t
 set completeopt=longest,menuone
 
-set expandtab
-set shiftround
-set shiftwidth=4
+"set expandtab
+"set shiftround
+"set shiftwidth=4
 set autoindent
 set smartindent
-set softtabstop=4
-set tabstop=4
+"set softtabstop=4
+"set tabstop=4
 set nowrap
-set linebreak
+"set linebreak
 
 " line number
-set number
-set relativenumber
+"set number
+"set relativenumber
 set cursorline
 set cursorlineopt=number
 

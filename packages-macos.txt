@@ -1,15 +1,19 @@
 asciinema
+autocannon
 avro-tools
 bash
 bind
 colima
 coreutils
+curl
+deno
 difftastic
 dive
 docker
 duckdb
 exiftool
 eza
+ffmpeg
 fish
 freetds
 fzf
@@ -18,8 +22,11 @@ git
 gnupg
 gnuplot
 go
+got
 imagemagick
+jj
 jq
+just
 lazygit
 lua
 m1ddc
@@ -33,26 +40,36 @@ podman
 pstree
 python@3.9
 python@3.11
-python@3.13
+python@3.14
 redis
+ripgrep
+rsync
 ruff
 sequoia-sq
 shellcheck
+sonar-scanner
+sqlite
+tailwindcss
 terraform
 tippecanoe
 tmux
 tokei
 uv
 watchexec
+wireguard-tools
 yt-dlp
 
 
 --cask dbeaver-community
---cask parallels
+--cask font-jetbrains-mono
+--cask gechr/tap/whichspace
+--cask ghostty
+--cask kicad
+--cask krita
+--cask neovide
+--cask netnewswire
 --cask obsidian
 --cask ollama
---cask vmware-fusion
+--cask parallels
 --cask wireshark
---cask whichspace
-
-
+--cask yaak

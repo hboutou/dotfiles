@@ -3,6 +3,7 @@ ublock-origin
 darkreader
 enhancer-for-youtube
 sponsorblock
+redirector
 returnyoutubedislike
 old-reddit-redirect
 facebook-container

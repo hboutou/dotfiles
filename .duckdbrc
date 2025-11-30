@@ -10,13 +10,14 @@
 SET temp_directory TO '/tmp';
 SET enable_external_access TO false;
 
+--CREATE OR REPLACE TEMPORARY SECRET secret (
+--	TYPE s3,
+--	PROVIDER credential_chain,
+--	PROFILE 'duckdb'
+--);
 
-CREATE OR REPLACE TEMPORARY SECRET secret (
-	TYPE s3,
-	PROVIDER credential_chain,
-	CHAIN config,
-	PROFILE 'duckdb'
-);
+INSTALL avro FROM core;
+LOAD avro;
 
 SELECT extension_name, installed, description FROM duckdb_extensions() WHERE installed;
 

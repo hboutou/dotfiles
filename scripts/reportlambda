@@ -1,0 +1,71 @@
+#! /usr/bin/env -S uv run --no-config --no-progress --script
+# /// script
+# requires-python = ">=3.14"
+# dependencies = [
+#     "boto3",
+#     "polars",
+# ]
+# ///
+
+import argparse
+import datetime
+
+import boto3
+import polars as pl
+
+
+def fetch_lambdas(session: boto3.Session):
+	lambda_client = session.client("lambda")
+	pages = lambda_client.get_paginator("list_functions").paginate()
+	funcs = (fn for p in pages for fn in p.get("Functions"))
+
+	for fn in funcs:
+		if fn.get("PackageType") == "Image":
+			resp = lambda_client.get_function(FunctionName=fn.get("FunctionName"))
+			yield {
+				"lambda": fn.get("FunctionName"),
+				"image": resp.get("Code").get("ImageUri").split(".com/", maxsplit=1)[-1],
+				"tags": ",".join(filter(None, [resp.get("tags").get("PID"), resp.get("tags").get("SERVICEID")])),
+			}
+
+
+def main(args):
+	session = boto3.Session(profile_name=args.profile)
+
+	now = datetime.datetime.now(tz=datetime.UTC)
+        print(now.strftime("%F %T %Z %z"))  # utc
+        print(now.astimezone().strftime("%F %T %Z %z"))  # local
+
+	funcs = fetch_lambdas(session)
+
+	df = (
+		pl.DataFrame(funcs)
+		#.filter(~pl.col("image").str.contains("2.74"))
+		.filter(
+			pl.any_horizontal(
+				pl.col("tags").str.contains_any(["ts00329", "ts00940", "ts00941", "ts01014", "ts01483", "ts01484", "ts01486"], ascii_case_insensitive=True),
+				#True
+			)
+		)
+		.sort(
+			pl.col("image"),
+			pl.col("lambda"),
+		)
+		.with_row_index(name="#", offset=1)
+	)
+
+	print(df)
+
+
+if __name__ == "__main__":
+	parser = argparse.ArgumentParser()
+	parser.add_argument("--profile", default="default")
+	args = parser.parse_args()
+
+	pl.Config(tbl_rows=-1, tbl_cols=-1)
+	pl.Config.set_fmt_str_lengths(999)
+	pl.Config.set_tbl_width_chars(99)
+	pl.Config.set_tbl_hide_column_data_types(True)
+	pl.Config.set_tbl_hide_dataframe_shape(True)
+	main(args)
+

@@ -1,0 +1,80 @@
+#! /usr/bin/env -S uv run --no-config --no-progress --script
+# /// script
+# requires-python = ">=3.14"
+# dependencies = [
+#     "boto3",
+#     "polars",
+# ]
+# ///
+""" Report on Batch images """
+
+import argparse
+import datetime
+
+import boto3
+import polars as pl
+
+
+def fetch_jobs(session: boto3.Session):
+	batch_client = session.client("batch")
+	pages = batch_client.get_paginator("describe_job_definitions").paginate(status="ACTIVE")
+	jobdefinitions = (jobdef for p in pages for jobdef in p.get("jobDefinitions"))
+	for j in jobdefinitions:
+		yield {
+			"job": j.get("jobDefinitionName"),
+			"status": j.get("status"),
+			"revision": j.get("revision"),
+			"image": j.get("containerProperties", {}).get("image").split(".com/", maxsplit=1)[-1],
+			"tags": ",".join(filter(None, [j.get("tags").get("PID"), j.get("tags").get("SERVICEID")])),
+		}
+
+
+def main():
+	session = boto3.Session(profile_name=args.profile)
+
+	now = datetime.datetime.now(tz=datetime.UTC)
+	print(now.strftime("%F %T %Z %z"))  # utc
+	print(now.astimezone().strftime("%F %T %Z %z"))  # local
+
+	jobs = fetch_jobs(session)
+
+	df = (
+		pl.DataFrame(jobs)
+		.with_columns(
+			pl.col("revision")
+			.rank(method="ordinal", descending=True)
+			.over("job")
+			.alias("rank")
+		)
+		.filter(pl.col("rank") == 1)
+		.drop("rank")
+		.filter(~pl.col("job").str.starts_with("qa"))
+		.filter(~pl.col("job").str.starts_with("dev"))
+		#.filter(~pl.col("image").str.contains("2.74"))
+		.filter(
+			pl.any_horizontal(
+				pl.col("tags").str.contains_any(["ts00329", "ts00940", "ts00941", "ts01014", "ts01483", "ts01484", "ts01486"], ascii_case_insensitive=True),
+				#True,
+			)
+		)
+		.sort(
+			pl.col("image"),
+			pl.col("job"),
+		)
+		.with_row_index(name="#", offset=1)
+	)
+
+	print(df)
+
+if __name__ == "__main__":
+	parser = argparse.ArgumentParser()
+	parser.add_argument("--profile", default="default")
+	args = parser.parse_args()
+
+	pl.Config(tbl_rows=-1, tbl_cols=-1)
+	pl.Config.set_fmt_str_lengths(999)
+	pl.Config.set_tbl_width_chars(99)
+	pl.Config.set_tbl_hide_column_data_types(True)
+	pl.Config.set_tbl_hide_dataframe_shape(True)
+	main(args)
+

@@ -1,7 +1,13 @@
 #!/bin/sh
+set -o errexit
+set -o pipefail
+set -o noclobber
+
+sink=$(mktemp -u)
+mkfifo "$sink"
+trap 'rm -f "$sink"' EXIT
 
 
-host=stash.example.com
 repos=(
 	DATACALC/calculation-sdk
 	DATAAPI/kafka-consumers
@@ -9,7 +15,12 @@ repos=(
 
 for repo in "${repos[@]}"
 do
-	tag=$(git -c 'versionsort.suffix=-' ls-remote --exit-code --refs --sort='version:refname' --tags "ssh://git@$host/${repo}.git" '[0-9].[0-9][0-9].[0-9]*' | tail -1)
-	echo "$tag \t $repo"
+	git -c versionsort.suffix=- ls-remote --exit-code --refs --sort=version:refname --tags "ssh://git@stash.example.com/${repo}.git" '[0-9].[0-9][0-9].[0-9]*' \
+		| tail -n 1 \
+		| xargs -I{} echo {} "$repo" > "$sink" &
+
 done
+wait
+
+cat "$sink" | sort -k3 | sed -e 's: :\t:g'
 

@@ -1,0 +1,12 @@
+[user]
+name = "hboutou"
+email = "22304469+hboutou@users.noreply.github.com"
+
+[ui]
+editor = "vim"
+
+[aliases]
+s = ["status"]
+l = ["log"]
+n = ["new"]
+

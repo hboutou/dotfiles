@@ -1,0 +1,63 @@
+#! /usr/bin/env python3
+import configparser
+import datetime
+import pathlib
+import subprocess
+
+oprstg = "???"
+oprprd = "???"
+
+awsconfpath = pathlib.Path.home().joinpath("./aws/credentials")
+awsconfpath_backup = pathlib.Path.home().joinpath(f"./aws/credentials.{datetime.datetime.today().strftime('%FT%T')}")
+
+
+def read_clipboard():
+	return subprocess.run(["pbpaste"], shell=True, check=True, capture_output=True).stdout.decode()
+
+
+def get_caller_identity():
+	return subprocess.run(["aws sts get-caller-identity --no-cli-pager"], shell=True, check=True, capture_output=True).stdout.decode()
+
+
+def getawskey(conf, section):
+	fields = [
+		"aws_access_key_id",
+		"aws_secret_access_key",
+		"aws_session_token",
+	]
+	if section in conf:
+		result = {f: conf.get(section, f) for f in fields}
+		if all(result.values()):
+			return result
+
+
+def main():
+	stdinconf = configparser.ConfigParser()
+	try:
+		stdinconf.read_string(read_clipboard(), source="stdin")
+	except:
+		quit("bad stdin")
+
+	awsconf = configparser.ConfigParser()
+	try:
+		awsconf.read(awsconfpath)
+	except:
+		quit("bad aws credentials file")
+
+	if oprstg in stdinconf and (awskey:=getawskey(stdinconf, oprstg)):
+		awsconf["default"] = awskey
+		awsconf["duckdb"] = awskey
+		awsconf.set("duckdb", "region", "us-east-1")
+	
+	if oprprd in stdinconf and (awskey:=getawskey(stdinconf, oprprd)):
+		awsconf["prod"] = awskey
+
+	awsconfpath.copy(awsconfpath_backup)
+	with awsconfpath.open("w") as fd:
+		awsconf.write(fd)
+
+	print(get_caller_identity())
+
+if __name__ == "__main__":
+	main()
+

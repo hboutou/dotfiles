@@ -7,9 +7,13 @@ function tmpuvenv --description "Create a throwaway python playground"
 	end
 
 	rm -rf "$venvdir"
-	uv venv --seed --python 3.13 "$venvdir"
+	uv venv --seed --python 3.14 "$venvdir"
 
-	VIRTUAL_ENV="$venvdir" uv pip install --no-binary=pymssql \
+	CFLAGS="-I$(brew --prefix openssl)/include" \
+	CPPFLAGS="-I$(brew --prefix openssl)/include" \
+	LDFLAGS="-I$(brew --prefix openssl)/lib" \
+	VIRTUAL_ENV="$venvdir" \
+	uv pip install --no-binary=pymssql \
 		boto3 \
 		duckdb \
 		fastavro \
