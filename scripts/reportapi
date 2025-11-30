@@ -1,0 +1,19 @@
+#!/bin/bash
+set -o errexit
+set -o pipefail
+
+date -u '+%F %T %Z %z'
+date    '+%F %T %Z %z'
+
+{
+	curl -sSL https://example.com/personalfm/version                -w '%{http_code} %{url_effective}\n' -o /dev/null &
+	curl -sSL https://example.com/p/calculations/risk-score/version -w '%{http_code} %{url_effective}\n' -o /dev/null &
+	curl -sSL https://example.com/p/client-dilldown/health-check    -w '%{http_code} %{url_effective}\n' -o /dev/null &
+	curl -sSL https://example.com/p/drilldown/health-check          -w '%{http_code} %{url_effective}\n' -o /dev/null &
+	curl -sSL https://example.com/p/esg/health-check                -w '%{http_code} %{url_effective}\n' -o /dev/null &
+	curl -sSL https://example.com/p/eu-taxonomy/health              -w '%{http_code} %{url_effective}\n' -o /dev/null &
+	curl -sSL https://example.com/p/mlb/version                     -w '%{http_code} %{url_effective}\n' -o /dev/null &
+	curl -sSL https://example.com/p/version                         -w '%{http_code} %{url_effective}\n' -o /dev/null &
+	wait
+} | sort -k2
+

@@ -7,7 +7,7 @@ function tmpvenv --description "Create a throwaway python playground"
 	end
 
 	rm -rf "$venvdir"
-	python3.13 -m venv "$venvdir"
+	python3.14 -m venv "$venvdir"
 
 	"$venvdir/bin/pip" install --upgrade pip
 	"$venvdir/bin/pip" install --verbose --no-cache-dir --no-binary=pymssql \
