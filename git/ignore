@@ -1,6 +1,9 @@
+_/
 .venv/
 .idea/
 .vscode/
+.obsidian/
+.mvn
 *~
 *.[oa]
 .*.swp
